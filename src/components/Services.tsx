@@ -10,7 +10,7 @@ const Services = () => {
       description: "Efficient B2B cargo solutions with competitive pricing",
       features: [
         "Lowest ODA (Out of Delivery Area) charges",
-        "Doorstep pick-up & delivery",
+        "Doorstep pickup & delivery",
         "Affordable pricing with real-time tracking"
       ]
     },
@@ -57,6 +57,13 @@ const Services = () => {
     }
   ];
 
+  const handleGetQuote = () => {
+    const modal = document.getElementById('quote-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+    }
+  };
+
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,9 +76,12 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+            <Card 
+              key={index} 
+              className="hover:shadow-lg transition-all duration-300 border-0 shadow-md transform hover:scale-105 hover:-translate-y-2"
+            >
               <CardHeader className="text-center pb-4">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-200">
                   <service.icon className="h-8 w-8 text-blue-600" />
                 </div>
                 <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
@@ -94,12 +104,15 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-blue-600 text-white py-12 px-8 rounded-lg">
+          <div className="bg-blue-600 text-white py-12 px-8 rounded-lg transform hover:scale-105 transition-transform duration-300 hover:shadow-xl">
             <h3 className="text-2xl font-bold mb-4">Ready to Optimize Your Logistics?</h3>
             <p className="text-blue-100 mb-6">
               Let us help you streamline your supply chain with our expert solutions
             </p>
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
+            <button 
+              onClick={handleGetQuote}
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 transform hover:scale-105"
+            >
               Request a Quote
             </button>
           </div>
