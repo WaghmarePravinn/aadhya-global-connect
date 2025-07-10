@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -65,9 +66,23 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([
+          {
+            name: formData.name,
+            company: formData.company || null,
+            email: formData.email,
+            phone: formData.phone,
+            service: formData.service || null,
+            message: formData.message
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
       toast.success("Message sent successfully! We'll get back to you within 24 hours.", {
         duration: 5000,
       });
@@ -82,6 +97,7 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
+      console.error('Error sending message:', error);
       toast.error("Failed to send message. Please try again.", {
         duration: 5000,
       });
@@ -91,7 +107,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
@@ -103,7 +119,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-6">
-            <Card className="border-0 shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <Card className="border-0 shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2 text-blue-600">
                   <Clock className="h-5 w-5" />
@@ -128,7 +144,7 @@ const Contact = () => {
             </Card>
 
             {contactInfo.map((info, index) => (
-              <Card key={index} className="border-0 shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <Card key={index} className="border-0 shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2 text-blue-600">
                     <info.icon className="h-5 w-5" />
@@ -150,7 +166,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="border-0 shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <Card className="border-0 shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
               <CardHeader>
                 <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
               </CardHeader>
@@ -167,7 +183,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Enter your full name" 
                         required
-                        className="transform hover:scale-105 transition-transform duration-200"
+                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
                       />
                     </div>
                     <div>
@@ -179,7 +195,7 @@ const Contact = () => {
                         value={formData.company}
                         onChange={handleInputChange}
                         placeholder="Enter your company name"
-                        className="transform hover:scale-105 transition-transform duration-200"
+                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
                       />
                     </div>
                   </div>
@@ -196,7 +212,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Enter your email" 
                         required
-                        className="transform hover:scale-105 transition-transform duration-200"
+                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
                       />
                     </div>
                     <div>
@@ -209,7 +225,7 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Enter your phone number" 
                         required
-                        className="transform hover:scale-105 transition-transform duration-200"
+                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
                       />
                     </div>
                   </div>
@@ -222,7 +238,7 @@ const Contact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transform hover:scale-105 transition-transform duration-200"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transform hover:scale-105 transition-all duration-200 focus:scale-105"
                     >
                       <option value="">Select a service</option>
                       <option value="ptl">Part Truck Load (PTL)</option>
@@ -244,14 +260,14 @@ const Contact = () => {
                       placeholder="Tell us about your logistics requirements..."
                       rows={5}
                       required
-                      className="transform hover:scale-105 transition-transform duration-200"
+                      className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
                     />
                   </div>
 
                   <Button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 transform hover:scale-105 transition-all duration-200"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 disabled:scale-100"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>

@@ -140,6 +140,15 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes grid-move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 0.6s ease-out forwards;
 }
@@ -157,16 +166,40 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom hover effects */
+/* Enhanced hover effects */
 .hover-lift {
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .hover-lift:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Interactive button effects */
+button:active {
+  transform: scale(0.95);
 }
 
 /* Quote modal initially hidden */
 #quote-modal {
   display: none;
+}
+
+/* Custom animations for interactive elements */
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

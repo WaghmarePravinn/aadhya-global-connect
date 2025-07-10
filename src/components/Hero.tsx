@@ -1,17 +1,39 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Truck, Package, Globe, Clock } from "lucide-react";
 
 const Hero = () => {
   return (
     <section id="home" className="pt-16 relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
-        }}
-      />
+      {/* Professional Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            animation: 'grid-move 20s linear infinite'
+          }}></div>
+        </div>
+        
+        {/* Floating Logistics Icons */}
+        <div className="absolute inset-0">
+          <Truck className="absolute top-20 left-10 w-8 h-8 text-blue-400/30 animate-bounce" style={{animationDelay: '0s'}} />
+          <Package className="absolute top-40 right-20 w-6 h-6 text-green-400/30 animate-pulse" style={{animationDelay: '1s'}} />
+          <Globe className="absolute bottom-40 left-20 w-7 h-7 text-yellow-400/30 animate-spin" style={{animationDuration: '10s'}} />
+          <Clock className="absolute bottom-20 right-10 w-5 h-5 text-purple-400/30 animate-ping" style={{animationDelay: '2s'}} />
+        </div>
+
+        {/* Moving Particles */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400/40 rounded-full animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/3 w-3 h-3 bg-green-400/40 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-1/3 left-1/2 w-1 h-1 bg-yellow-400/40 rounded-full animate-ping"></div>
+        </div>
+      </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -44,48 +66,43 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 hover:shadow-lg"
+                className="bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 active:scale-95"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-gray-900 transform hover:scale-105 transition-all duration-200"
+                className="border-white text-white hover:bg-white hover:text-gray-900 transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95"
               >
                 Track Shipment
               </Button>
             </div>
           </div>
 
-          {/* Right Content - Animated Stats */}
+          {/* Right Content - Enhanced Animated Stats */}
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/20">
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-blue-500/25 cursor-pointer">
               <div className="text-3xl font-bold text-blue-400 animate-bounce">48L+</div>
               <div className="text-gray-200">Tonnes Shipped</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/20">
-              <div className="text-3xl font-bold text-blue-400 animate-bounce">11K+</div>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-green-500/25 cursor-pointer">
+              <div className="text-3xl font-bold text-green-400 animate-bounce" style={{animationDelay: '0.5s'}}>11K+</div>
               <div className="text-gray-200">Fleet Strength</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/20">
-              <div className="text-3xl font-bold text-blue-400 animate-bounce">33K+</div>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-yellow-500/25 cursor-pointer">
+              <div className="text-3xl font-bold text-yellow-400 animate-bounce" style={{animationDelay: '1s'}}>33K+</div>
               <div className="text-gray-200">Happy Clients</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/20">
-              <div className="text-3xl font-bold text-blue-400 animate-bounce">24/7</div>
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-purple-500/25 cursor-pointer">
+              <div className="text-3xl font-bold text-purple-400 animate-bounce" style={{animationDelay: '1.5s'}}>24/7</div>
               <div className="text-gray-200">Operations</div>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Floating Animation Elements */}
-      <div className="absolute top-20 left-10 w-4 h-4 bg-blue-400 rounded-full animate-ping opacity-75"></div>
-      <div className="absolute bottom-20 right-10 w-6 h-6 bg-green-400 rounded-full animate-pulse opacity-75"></div>
-      <div className="absolute top-1/2 right-20 w-3 h-3 bg-yellow-400 rounded-full animate-bounce opacity-75"></div>
     </section>
   );
 };
