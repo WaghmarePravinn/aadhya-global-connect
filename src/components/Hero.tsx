@@ -1,109 +1,131 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Truck, Package, Globe, Clock } from "lucide-react";
+import { useState } from "react";
+import TrackingModal from "./TrackingModal";
 
 const Hero = () => {
+  const [isTrackingOpen, setIsTrackingOpen] = useState(false);
+
   return (
-    <section id="home" className="pt-16 relative min-h-screen flex items-center overflow-hidden">
-      {/* Professional Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-            animation: 'grid-move 20s linear infinite'
-          }}></div>
+    <>
+      <section id="home" className="pt-16 relative min-h-screen flex items-center overflow-hidden">
+        {/* Professional Interactive Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900">
+          {/* Dynamic Grid Pattern */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '60px 60px',
+              animation: 'grid-move 25s linear infinite'
+            }}></div>
+          </div>
+          
+          {/* Interactive Floating Elements */}
+          <div className="absolute inset-0">
+            <Truck className="absolute top-20 left-10 w-12 h-12 text-emerald-300/40 animate-bounce hover:text-emerald-300/60 transition-colors cursor-pointer" style={{animationDelay: '0s'}} />
+            <Package className="absolute top-32 right-20 w-10 h-10 text-teal-300/40 animate-pulse hover:text-teal-300/60 transition-colors cursor-pointer" style={{animationDelay: '1s'}} />
+            <Globe className="absolute bottom-40 left-16 w-14 h-14 text-cyan-300/40 hover:text-cyan-300/60 transition-all cursor-pointer" style={{animation: 'float 8s ease-in-out infinite'}} />
+            <Clock className="absolute bottom-20 right-12 w-8 h-8 text-emerald-400/40 animate-ping hover:text-emerald-400/60 transition-colors cursor-pointer" style={{animationDelay: '2s'}} />
+            
+            {/* Additional Professional Elements */}
+            <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-gradient-to-r from-emerald-400/30 to-teal-400/30 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-1/3 left-1/3 w-8 h-8 bg-gradient-to-r from-cyan-400/20 to-teal-400/20 rounded-full animate-bounce" style={{animationDelay: '3s'}}></div>
+            <div className="absolute top-1/2 left-1/5 w-4 h-4 bg-emerald-400/30 rounded-full animate-ping" style={{animationDelay: '1.5s'}}></div>
+          </div>
+
+          {/* Professional Overlay Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10"></div>
         </div>
         
-        {/* Floating Logistics Icons */}
-        <div className="absolute inset-0">
-          <Truck className="absolute top-20 left-10 w-8 h-8 text-blue-400/30 animate-bounce" style={{animationDelay: '0s'}} />
-          <Package className="absolute top-40 right-20 w-6 h-6 text-green-400/30 animate-pulse" style={{animationDelay: '1s'}} />
-          <Globe className="absolute bottom-40 left-20 w-7 h-7 text-yellow-400/30 animate-spin" style={{animationDuration: '10s'}} />
-          <Clock className="absolute bottom-20 right-10 w-5 h-5 text-purple-400/30 animate-ping" style={{animationDelay: '2s'}} />
-        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-8 animate-fade-in">
+              <div className="space-y-6">
+                <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
+                  Global
+                  <span className="text-emerald-400 animate-pulse"> Logistics</span>
+                  <br />
+                  Excellence
+                </h1>
+                <p className="text-xl text-gray-100 leading-relaxed">
+                  Aadhya Global Services & Logistics (AGS Logistics) - Your premier partner for 
+                  comprehensive, reliable, and transparent logistics solutions spanning local, national, 
+                  and international trade routes with 24/7 operational excellence.
+                </p>
+              </div>
 
-        {/* Moving Particles */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400/40 rounded-full animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/3 w-3 h-3 bg-green-400/40 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-1/3 left-1/2 w-1 h-1 bg-yellow-400/40 rounded-full animate-ping"></div>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <CheckCircle className="h-6 w-6 text-emerald-400" />
+                  <span className="text-gray-100 font-medium">Official Partners: Delhivery, FedEx, Aramex, DHL</span>
+                </div>
+                <div className="flex items-center space-x-3 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <CheckCircle className="h-6 w-6 text-emerald-400" />
+                  <span className="text-gray-100 font-medium">99.8% Pan-India Coverage Network</span>
+                </div>
+                <div className="flex items-center space-x-3 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <CheckCircle className="h-6 w-6 text-emerald-400" />
+                  <span className="text-gray-100 font-medium">ISO 9001:2015 Certified Operations</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-emerald-600 hover:bg-emerald-700 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/25 active:scale-95"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Get Quote Now
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-emerald-900 transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95"
+                  onClick={() => setIsTrackingOpen(true)}
+                >
+                  Track Shipment
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Content - Professional Stats Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-emerald-500/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-emerald-400 animate-bounce group-hover:animate-pulse">50L+</div>
+                <div className="text-gray-100 font-medium">Tonnes Delivered</div>
+                <div className="text-sm text-gray-300 mt-1">Monthly Capacity</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-teal-500/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-teal-400 animate-bounce group-hover:animate-pulse" style={{animationDelay: '0.5s'}}>15K+</div>
+                <div className="text-gray-100 font-medium">Fleet Vehicles</div>
+                <div className="text-sm text-gray-300 mt-1">Nationwide Network</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-cyan-500/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-cyan-400 animate-bounce group-hover:animate-pulse" style={{animationDelay: '1s'}}>50K+</div>
+                <div className="text-gray-100 font-medium">Happy Clients</div>
+                <div className="text-sm text-gray-300 mt-1">Trusted Partners</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-emerald-500/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-emerald-300 animate-bounce group-hover:animate-pulse" style={{animationDelay: '1.5s'}}>24/7</div>
+                <div className="text-gray-100 font-medium">Operations</div>
+                <div className="text-sm text-gray-300 mt-1">Customer Support</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight">
-                Trusted
-                <span className="text-blue-400 animate-pulse"> Logistics</span>
-                <br />
-                Solutions
-              </h1>
-              <p className="text-xl text-gray-200 leading-relaxed">
-                Aadhya Global Services & Logistics (AGS Logistics) - Your trusted partner for 
-                reliable, fast, and transparent logistics solutions across local, national, and international routes.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200">
-                <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-gray-200">Official Partner: Delhivery, FedEx, Aramex</span>
-              </div>
-              <div className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200">
-                <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-gray-200">99.5% India Coverage</span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 active:scale-95"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-gray-900 transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95"
-              >
-                Track Shipment
-              </Button>
-            </div>
-          </div>
-
-          {/* Right Content - Enhanced Animated Stats */}
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-blue-500/25 cursor-pointer">
-              <div className="text-3xl font-bold text-blue-400 animate-bounce">48L+</div>
-              <div className="text-gray-200">Tonnes Shipped</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-green-500/25 cursor-pointer">
-              <div className="text-3xl font-bold text-green-400 animate-bounce" style={{animationDelay: '0.5s'}}>11K+</div>
-              <div className="text-gray-200">Fleet Strength</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-yellow-500/25 cursor-pointer">
-              <div className="text-3xl font-bold text-yellow-400 animate-bounce" style={{animationDelay: '1s'}}>33K+</div>
-              <div className="text-gray-200">Happy Clients</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-purple-500/25 cursor-pointer">
-              <div className="text-3xl font-bold text-purple-400 animate-bounce" style={{animationDelay: '1.5s'}}>24/7</div>
-              <div className="text-gray-200">Operations</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <TrackingModal 
+        isOpen={isTrackingOpen} 
+        onClose={() => setIsTrackingOpen(false)} 
+      />
+    </>
   );
 };
 
