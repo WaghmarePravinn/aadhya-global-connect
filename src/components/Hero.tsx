@@ -11,7 +11,7 @@ const Hero = () => {
     <>
       <section id="home" className="pt-16 relative min-h-screen flex items-center overflow-hidden">
         {/* Professional Interactive Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900">
+        <div className="absolute inset-0" style={{background: 'var(--gradient-hero)'}}>
           {/* Dynamic Grid Pattern */}
           <div className="absolute inset-0 opacity-20">
             <div className="absolute inset-0" style={{
@@ -26,15 +26,15 @@ const Hero = () => {
           
           {/* Interactive Floating Elements */}
           <div className="absolute inset-0">
-            <Truck className="absolute top-20 left-10 w-12 h-12 text-emerald-300/40 animate-bounce hover:text-emerald-300/60 transition-colors cursor-pointer" style={{animationDelay: '0s'}} />
-            <Package className="absolute top-32 right-20 w-10 h-10 text-teal-300/40 animate-pulse hover:text-teal-300/60 transition-colors cursor-pointer" style={{animationDelay: '1s'}} />
-            <Globe className="absolute bottom-40 left-16 w-14 h-14 text-cyan-300/40 hover:text-cyan-300/60 transition-all cursor-pointer" style={{animation: 'float 8s ease-in-out infinite'}} />
-            <Clock className="absolute bottom-20 right-12 w-8 h-8 text-emerald-400/40 animate-ping hover:text-emerald-400/60 transition-colors cursor-pointer" style={{animationDelay: '2s'}} />
+            <Truck className="absolute top-20 left-10 w-12 h-12 text-red-300/40 animate-bounce hover:text-red-300/60 transition-colors cursor-pointer" style={{animationDelay: '0s'}} />
+            <Package className="absolute top-32 right-20 w-10 h-10 text-red-200/40 animate-pulse hover:text-red-200/60 transition-colors cursor-pointer" style={{animationDelay: '1s'}} />
+            <Globe className="absolute bottom-40 left-16 w-14 h-14 text-red-300/40 hover:text-red-300/60 transition-all cursor-pointer" style={{animation: 'float 8s ease-in-out infinite'}} />
+            <Clock className="absolute bottom-20 right-12 w-8 h-8 text-red-400/40 animate-ping hover:text-red-400/60 transition-colors cursor-pointer" style={{animationDelay: '2s'}} />
             
             {/* Additional Professional Elements */}
-            <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-gradient-to-r from-emerald-400/30 to-teal-400/30 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-1/3 left-1/3 w-8 h-8 bg-gradient-to-r from-cyan-400/20 to-teal-400/20 rounded-full animate-bounce" style={{animationDelay: '3s'}}></div>
-            <div className="absolute top-1/2 left-1/5 w-4 h-4 bg-emerald-400/30 rounded-full animate-ping" style={{animationDelay: '1.5s'}}></div>
+            <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-gradient-to-r from-red-400/30 to-red-300/30 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-1/3 left-1/3 w-8 h-8 bg-gradient-to-r from-red-400/20 to-red-300/20 rounded-full animate-bounce" style={{animationDelay: '3s'}}></div>
+            <div className="absolute top-1/2 left-1/5 w-4 h-4 bg-red-400/30 rounded-full animate-ping" style={{animationDelay: '1.5s'}}></div>
           </div>
 
           {/* Professional Overlay Pattern */}
@@ -48,7 +48,7 @@ const Hero = () => {
               <div className="space-y-6">
                 <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
                   Global
-                  <span className="text-emerald-400 animate-pulse"> Logistics</span>
+                  <span className="text-red-300 animate-pulse"> Logistics</span>
                   <br />
                   Excellence
                 </h1>
@@ -61,15 +61,15 @@ const Hero = () => {
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-3 transform hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <CheckCircle className="h-6 w-6 text-emerald-400" />
+                  <CheckCircle className="h-6 w-6 text-red-300" />
                   <span className="text-gray-100 font-medium">Official Partners: Delhivery, FedEx, Aramex, DHL</span>
                 </div>
                 <div className="flex items-center space-x-3 transform hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <CheckCircle className="h-6 w-6 text-emerald-400" />
+                  <CheckCircle className="h-6 w-6 text-red-300" />
                   <span className="text-gray-100 font-medium">99.8% Pan-India Coverage Network</span>
                 </div>
                 <div className="flex items-center space-x-3 transform hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <CheckCircle className="h-6 w-6 text-emerald-400" />
+                  <CheckCircle className="h-6 w-6 text-red-300" />
                   <span className="text-gray-100 font-medium">ISO 9001:2015 Certified Operations</span>
                 </div>
               </div>
@@ -77,7 +77,7 @@ const Hero = () => {
               <div className="flex flex-wrap gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-emerald-600 hover:bg-emerald-700 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/25 active:scale-95"
+                  className="bg-red-600 hover:bg-red-700 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/25 active:scale-95"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Get Quote Now
@@ -86,7 +86,7 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-emerald-900 transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95"
+                  className="border-2 border-red-300 text-red-300 hover:bg-red-300 hover:text-red-900 transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95"
                   onClick={() => setIsTrackingOpen(true)}
                 >
                   Track Shipment
@@ -96,23 +96,23 @@ const Hero = () => {
 
             {/* Right Content - Professional Stats Grid */}
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-emerald-500/25 cursor-pointer group">
-                <div className="text-4xl font-bold text-emerald-400 animate-bounce group-hover:animate-pulse">50L+</div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-red-500/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-red-300 animate-bounce group-hover:animate-pulse">50L+</div>
                 <div className="text-gray-100 font-medium">Tonnes Delivered</div>
                 <div className="text-sm text-gray-300 mt-1">Monthly Capacity</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-teal-500/25 cursor-pointer group">
-                <div className="text-4xl font-bold text-teal-400 animate-bounce group-hover:animate-pulse" style={{animationDelay: '0.5s'}}>15K+</div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-red-400/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-red-400 animate-bounce group-hover:animate-pulse" style={{animationDelay: '0.5s'}}>15K+</div>
                 <div className="text-gray-100 font-medium">Fleet Vehicles</div>
                 <div className="text-sm text-gray-300 mt-1">Nationwide Network</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-cyan-500/25 cursor-pointer group">
-                <div className="text-4xl font-bold text-cyan-400 animate-bounce group-hover:animate-pulse" style={{animationDelay: '1s'}}>50K+</div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-red-300/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-red-200 animate-bounce group-hover:animate-pulse" style={{animationDelay: '1s'}}>50K+</div>
                 <div className="text-gray-100 font-medium">Happy Clients</div>
                 <div className="text-sm text-gray-300 mt-1">Trusted Partners</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-emerald-500/25 cursor-pointer group">
-                <div className="text-4xl font-bold text-emerald-300 animate-bounce group-hover:animate-pulse" style={{animationDelay: '1.5s'}}>24/7</div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-2xl text-center transform hover:scale-110 transition-all duration-500 hover:bg-white/20 hover:shadow-red-500/25 cursor-pointer group">
+                <div className="text-4xl font-bold text-red-300 animate-bounce group-hover:animate-pulse" style={{animationDelay: '1.5s'}}>24/7</div>
                 <div className="text-gray-100 font-medium">Operations</div>
                 <div className="text-sm text-gray-300 mt-1">Customer Support</div>
               </div>

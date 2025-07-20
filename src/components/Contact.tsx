@@ -130,11 +130,11 @@ const Contact = () => {
                 <div className="space-y-2 text-gray-600">
                   <div className="flex justify-between">
                     <span>Monday - Saturday:</span>
-                    <span>9:00 AM - 8:00 PM</span>
+                    <span>10:00 AM - 7:30 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Sunday:</span>
-                    <span>10:00 AM - 6:00 PM</span>
+                    <span>Closed</span>
                   </div>
                   <div className="mt-4 p-3 bg-green-50 rounded-lg">
                     <div className="text-green-800 font-medium">24/7 Emergency Support Available</div>
