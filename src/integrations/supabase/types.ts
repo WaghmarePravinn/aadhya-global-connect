@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      carriers: {
+        Row: {
+          code: string
+          contracts: Json | null
+          created_at: string
+          id: string
+          is_active: boolean | null
+          name: string
+          rates: Json | null
+          service_levels: Json | null
+          updated_at: string
+        }
+        Insert: {
+          code: string
+          contracts?: Json | null
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          name: string
+          rates?: Json | null
+          service_levels?: Json | null
+          updated_at?: string
+        }
+        Update: {
+          code?: string
+          contracts?: Json | null
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          rates?: Json | null
+          service_levels?: Json | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           company: string | null
@@ -47,15 +83,207 @@ export type Database = {
         }
         Relationships: []
       }
+      orders: {
+        Row: {
+          actual_delivery_date: string | null
+          carrier_id: string | null
+          created_at: string
+          customer_id: string
+          delivery_address: Json
+          dimensions: Json | null
+          estimated_delivery_date: string | null
+          id: string
+          order_number: string
+          pickup_address: Json
+          service_level: string | null
+          shipment_type: Database["public"]["Enums"]["shipment_type"]
+          special_instructions: string | null
+          status: Database["public"]["Enums"]["shipment_status"]
+          total_cost: number | null
+          tracking_number: string | null
+          updated_at: string
+          weight: number | null
+        }
+        Insert: {
+          actual_delivery_date?: string | null
+          carrier_id?: string | null
+          created_at?: string
+          customer_id: string
+          delivery_address: Json
+          dimensions?: Json | null
+          estimated_delivery_date?: string | null
+          id?: string
+          order_number: string
+          pickup_address: Json
+          service_level?: string | null
+          shipment_type: Database["public"]["Enums"]["shipment_type"]
+          special_instructions?: string | null
+          status?: Database["public"]["Enums"]["shipment_status"]
+          total_cost?: number | null
+          tracking_number?: string | null
+          updated_at?: string
+          weight?: number | null
+        }
+        Update: {
+          actual_delivery_date?: string | null
+          carrier_id?: string | null
+          created_at?: string
+          customer_id?: string
+          delivery_address?: Json
+          dimensions?: Json | null
+          estimated_delivery_date?: string | null
+          id?: string
+          order_number?: string
+          pickup_address?: Json
+          service_level?: string | null
+          shipment_type?: Database["public"]["Enums"]["shipment_type"]
+          special_instructions?: string | null
+          status?: Database["public"]["Enums"]["shipment_status"]
+          total_cost?: number | null
+          tracking_number?: string | null
+          updated_at?: string
+          weight?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_carrier_id_fkey"
+            columns: ["carrier_id"]
+            isOneToOne: false
+            referencedRelation: "carriers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      payment_methods: {
+        Row: {
+          created_at: string
+          details: Json
+          id: string
+          is_default: boolean | null
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          details: Json
+          id?: string
+          is_default?: boolean | null
+          type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          details?: Json
+          id?: string
+          is_default?: boolean | null
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          account_balance: number | null
+          company_name: string | null
+          created_at: string
+          full_name: string
+          id: string
+          notification_preferences: Json | null
+          phone: string | null
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          account_balance?: number | null
+          company_name?: string | null
+          created_at?: string
+          full_name: string
+          id?: string
+          notification_preferences?: Json | null
+          phone?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          account_balance?: number | null
+          company_name?: string | null
+          created_at?: string
+          full_name?: string
+          id?: string
+          notification_preferences?: Json | null
+          phone?: string | null
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      shipment_tracking: {
+        Row: {
+          created_at: string
+          id: string
+          location: string | null
+          notes: string | null
+          order_id: string
+          status: Database["public"]["Enums"]["shipment_status"]
+          timestamp: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          location?: string | null
+          notes?: string | null
+          order_id: string
+          status: Database["public"]["Enums"]["shipment_status"]
+          timestamp?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          location?: string | null
+          notes?: string | null
+          order_id?: string
+          status?: Database["public"]["Enums"]["shipment_status"]
+          timestamp?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "shipment_tracking_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _user_id: string
+          _role: Database["public"]["Enums"]["user_role"]
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      shipment_status:
+        | "pending"
+        | "processing"
+        | "in_transit"
+        | "out_for_delivery"
+        | "delivered"
+        | "cancelled"
+      shipment_type: "ground" | "air" | "ocean"
+      user_role: "customer" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -182,6 +410,17 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      shipment_status: [
+        "pending",
+        "processing",
+        "in_transit",
+        "out_for_delivery",
+        "delivered",
+        "cancelled",
+      ],
+      shipment_type: ["ground", "air", "ocean"],
+      user_role: ["customer", "admin"],
+    },
   },
 } as const
