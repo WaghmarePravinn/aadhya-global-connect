@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, LogOut, Truck } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
 import TrackingModal from "./TrackingModal";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -28,13 +28,18 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-40">
+      <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2 transform hover:scale-105 transition-transform duration-200">
-              <Truck className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-gray-900">FreightForward</span>
+            <Link to="/" className="flex items-center space-x-3 hover-lift">
+              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-lg">A</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-foreground">Aadthya Global</span>
+                <span className="text-xs text-muted-foreground">Logistics</span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -43,7 +48,7 @@ const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium transform hover:scale-105"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium hover-lift"
                 >
                   {item.label}
                 </a>
@@ -51,7 +56,7 @@ const Navigation = () => {
               <Button 
                 variant="outline" 
                 onClick={() => setIsTrackingModalOpen(true)}
-                className="bg-white text-primary hover:bg-primary hover:text-white transition-colors"
+                className="bg-background text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 Track Package
               </Button>
@@ -68,7 +73,7 @@ const Navigation = () => {
                   <Button 
                     variant="outline"
                     onClick={signOut}
-                    className="flex items-center gap-2 bg-white text-primary hover:bg-primary hover:text-white"
+                    className="flex items-center gap-2 bg-background text-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     <LogOut className="w-4 h-4" />
                     Sign Out
@@ -101,12 +106,12 @@ const Navigation = () => {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden animate-fade-in">
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
                 {navItems.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
-                    className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 transform hover:scale-105"
+                    className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-200 hover-lift"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -119,7 +124,7 @@ const Navigation = () => {
                       setIsTrackingModalOpen(true);
                       setIsMenuOpen(false);
                     }}
-                    className="w-full bg-white text-primary hover:bg-primary hover:text-white transition-colors"
+                    className="w-full bg-background text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     Track Package
                   </Button>
@@ -142,7 +147,7 @@ const Navigation = () => {
                           signOut()
                           setIsMenuOpen(false)
                         }}
-                        className="w-full flex items-center gap-2 bg-white text-primary hover:bg-primary hover:text-white mt-2"
+                        className="w-full flex items-center gap-2 bg-background text-primary hover:bg-primary hover:text-primary-foreground mt-2"
                       >
                         <LogOut className="w-4 h-4" />
                         Sign Out

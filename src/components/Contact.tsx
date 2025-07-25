@@ -107,27 +107,27 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="contact" className="py-20 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-foreground mb-4">Contact Us</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to optimize your logistics? Get in touch with our experts today.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-6">
-            <Card className="border-0 shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Information & Map */}
+          <div className="space-y-6">
+            <Card className="hover-lift">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2 text-blue-600">
+                <CardTitle className="flex items-center space-x-2 text-primary">
                   <Clock className="h-5 w-5" />
                   <span>Business Hours</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2 text-gray-600">
+                <div className="space-y-2 text-muted-foreground">
                   <div className="flex justify-between">
                     <span>Monday - Saturday:</span>
                     <span>10:00 AM - 7:30 PM</span>
@@ -136,17 +136,17 @@ const Contact = () => {
                     <span>Sunday:</span>
                     <span>Closed</span>
                   </div>
-                  <div className="mt-4 p-3 bg-green-50 rounded-lg">
-                    <div className="text-green-800 font-medium">24/7 Emergency Support Available</div>
+                  <div className="mt-4 p-3 bg-primary/10 rounded-lg">
+                    <div className="text-primary font-medium">24/7 Emergency Support Available</div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {contactInfo.map((info, index) => (
-              <Card key={index} className="border-0 shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+              <Card key={index} className="hover-lift">
                 <CardHeader>
-                  <CardTitle className="flex items-center space-x-2 text-blue-600">
+                  <CardTitle className="flex items-center space-x-2 text-primary">
                     <info.icon className="h-5 w-5" />
                     <span>{info.title}</span>
                   </CardTitle>
@@ -154,7 +154,7 @@ const Contact = () => {
                 <CardContent>
                   <div className="space-y-1">
                     {info.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="text-gray-600">
+                      <div key={detailIndex} className="text-muted-foreground">
                         {detail}
                       </div>
                     ))}
@@ -162,19 +162,41 @@ const Contact = () => {
                 </CardContent>
               </Card>
             ))}
+
+            {/* Google Maps */}
+            <Card className="hover-lift h-80">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2 text-primary">
+                  <MapPin className="h-5 w-5" />
+                  <span>Find Us</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2653398203925!2d73.92105037516442!3d18.51162327090433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea8b1234abcd%3A0x1234567890abcdef!2sLohegaon%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, borderRadius: '0 0 8px 8px' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="AGS Logistics Location"
+                />
+              </CardContent>
+            </Card>
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card className="border-0 shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+          <div>
+            <Card className="hover-lift">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
+                <CardTitle className="text-2xl text-foreground">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-foreground mb-2">
                         Full Name *
                       </label>
                       <Input 
@@ -183,11 +205,11 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Enter your full name" 
                         required
-                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
+                        className="form-input"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-foreground mb-2">
                         Company Name
                       </label>
                       <Input 
@@ -195,14 +217,14 @@ const Contact = () => {
                         value={formData.company}
                         onChange={handleInputChange}
                         placeholder="Enter your company name"
-                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
+                        className="form-input"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-foreground mb-2">
                         Email Address *
                       </label>
                       <Input 
@@ -212,11 +234,11 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Enter your email" 
                         required
-                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
+                        className="form-input"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-foreground mb-2">
                         Phone Number *
                       </label>
                       <Input 
@@ -225,20 +247,20 @@ const Contact = () => {
                         onChange={handleInputChange}
                         placeholder="Enter your phone number" 
                         required
-                        className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
+                        className="form-input"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-foreground mb-2">
                       Service Type
                     </label>
                     <select 
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transform hover:scale-105 transition-all duration-200 focus:scale-105"
+                      className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary form-input"
                     >
                       <option value="">Select a service</option>
                       <option value="ptl">Part Truck Load (PTL)</option>
@@ -250,7 +272,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-foreground mb-2">
                       Message *
                     </label>
                     <Textarea 
@@ -260,20 +282,20 @@ const Contact = () => {
                       placeholder="Tell us about your logistics requirements..."
                       rows={5}
                       required
-                      className="transform hover:scale-105 transition-all duration-200 focus:scale-105"
+                      className="form-input"
                     />
                   </div>
 
                   <Button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 disabled:scale-100"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 hover-lift"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
 
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-blue-800 text-sm">
+                  <div className="bg-primary/10 p-4 rounded-lg">
+                    <div className="text-primary text-sm">
                       <strong>Need Immediate Assistance?</strong> Call us at +91-9987345010 
                       for urgent logistics requirements or emergency support.
                     </div>
