@@ -130,8 +130,8 @@ const Auth = () => {
 
         <Card className="border-primary/20 shadow-2xl">
           <CardHeader className="space-y-1 text-center">
-            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent">
-              Welcome to FreightForward
+            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+              Welcome to Aadthya Global Logistics
             </CardTitle>
             <p className="text-muted-foreground">Sign in to your account or create a new one</p>
           </CardHeader>
