@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, LogOut } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import TrackingModal from "./TrackingModal";
-import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isTrackingModalOpen, setIsTrackingModalOpen] = useState(false);
-  const { user, profile, signOut } = useAuth();
-  const navigate = useNavigate();
 
   const navItems = [
     { href: "#home", label: "Home" },
@@ -19,12 +16,6 @@ const Navigation = () => {
     { href: "#contact", label: "Contact" },
   ];
 
-  const handleGetQuote = () => {
-    const modal = document.getElementById('quote-modal');
-    if (modal) {
-      modal.style.display = 'flex';
-    }
-  };
 
   return (
     <>
@@ -60,34 +51,6 @@ const Navigation = () => {
               >
                 Track Package
               </Button>
-              
-              {user ? (
-                <div className="flex items-center gap-2">
-                  <Button 
-                    onClick={() => navigate('/dashboard')}
-                    className="flex items-center gap-2"
-                  >
-                    <User className="w-4 h-4" />
-                    Dashboard
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    onClick={signOut}
-                    className="flex items-center gap-2 bg-background text-primary hover:bg-primary hover:text-primary-foreground"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Sign Out
-                  </Button>
-                </div>
-              ) : (
-                <Button 
-                  onClick={() => navigate('/auth')}
-                  className="flex items-center gap-2"
-                >
-                  <User className="w-4 h-4" />
-                  Login / Sign Up
-                </Button>
-              )}
             </div>
 
             {/* Mobile menu button */}
@@ -128,43 +91,6 @@ const Navigation = () => {
                   >
                     Track Package
                   </Button>
-                  
-                  {user ? (
-                    <>
-                      <Button 
-                        onClick={() => {
-                          navigate('/dashboard')
-                          setIsMenuOpen(false)
-                        }}
-                        className="w-full flex items-center gap-2 mt-2"
-                      >
-                        <User className="w-4 h-4" />
-                        Dashboard
-                      </Button>
-                      <Button 
-                        variant="outline"
-                        onClick={() => {
-                          signOut()
-                          setIsMenuOpen(false)
-                        }}
-                        className="w-full flex items-center gap-2 bg-background text-primary hover:bg-primary hover:text-primary-foreground mt-2"
-                      >
-                        <LogOut className="w-4 h-4" />
-                        Sign Out
-                      </Button>
-                    </>
-                  ) : (
-                    <Button 
-                      onClick={() => {
-                        navigate('/auth')
-                        setIsMenuOpen(false)
-                      }}
-                      className="w-full flex items-center gap-2 mt-2"
-                    >
-                      <User className="w-4 h-4" />
-                      Login / Sign Up
-                    </Button>
-                  )}
                 </div>
               </div>
             </div>

@@ -9,41 +9,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Background: Pure White (#FFFFFF) */
-    --background: 0 0% 100%;
-    /* Text Primary: Dark Gray-Black (#1C1C1C) */
-    --foreground: 0 0% 11%;
+    /* Background: Soft White */
+    --background: 0 0% 99%;
+    /* Text Primary: Softer Dark Gray */
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 11%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 11%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Primary Red: Rich Red (#D62828) */
-    --primary: 354 75% 49%;
+    /* Primary Red: Lighter Professional Red */
+    --primary: 4 65% 60%;
     --primary-foreground: 0 0% 100%;
-    /* Hover/Accent: Bright Red (#FF3B3F) */
-    --primary-glow: 358 100% 62%;
+    /* Hover/Accent: Softer Red */
+    --primary-glow: 4 70% 65%;
 
-    /* Muted Section BG: Light Gray (#F4F4F4) */
-    --secondary: 0 0% 96%;
-    /* Text Secondary: Soft Gray (#777777) */
-    --secondary-foreground: 0 0% 47%;
+    /* Muted Section BG: Very Light Gray */
+    --secondary: 0 0% 97%;
+    /* Text Secondary: Lighter Gray */
+    --secondary-foreground: 0 0% 50%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 47%;
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 50%;
 
-    /* Accent Black: Jet Black (#000000) */
-    --accent: 0 0% 0%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Light Gray */
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 354 75% 49%;
+    --border: 0 0% 93%;
+    --input: 0 0% 95%;
+    --ring: 4 65% 60%;
 
     --radius: 0.5rem;
 

@@ -77,14 +77,6 @@ const Hero = () => {
               <div className="flex flex-wrap gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-red-600 hover:bg-red-700 transform hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/25 active:scale-95"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Get Quote Now
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button 
-                  size="lg" 
                   variant="outline" 
                   className="border-2 border-red-300 text-red-300 hover:bg-red-300 hover:text-red-900 transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95"
                   onClick={() => setIsTrackingOpen(true)}

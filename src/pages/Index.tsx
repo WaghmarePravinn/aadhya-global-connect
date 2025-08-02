@@ -8,7 +8,6 @@ import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import QuoteForm from "@/components/QuoteForm";
 
 const Index = () => {
   return (
@@ -22,7 +21,6 @@ const Index = () => {
       <Gallery />
       <Contact />
       <Footer />
-      <QuoteForm />
     </div>
   );
 };
