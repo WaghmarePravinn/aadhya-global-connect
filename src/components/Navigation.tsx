@@ -24,9 +24,11 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 hover-lift">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">A</span>
-              </div>
+              <img 
+                src="/src/assets/logo.png" 
+                alt="Aadthya Global Logistics" 
+                className="w-10 h-10 object-contain"
+              />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-foreground">Aadthya Global</span>
                 <span className="text-xs text-muted-foreground">Logistics</span>

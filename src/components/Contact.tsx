@@ -1,5 +1,5 @@
 
-import { MapPin, Phone, Mail, Globe, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Clock, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,6 +49,13 @@ const Contact = () => {
       title: "Website",
       details: [
         "www.agslogistics.co.in"
+      ]
+    },
+    {
+      icon: MessageCircle,
+      title: "WhatsApp",
+      details: [
+        "+91-9987345010"
       ]
     }
   ];
@@ -155,7 +162,33 @@ const Contact = () => {
                   <div className="space-y-1">
                     {info.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="text-muted-foreground">
-                        {detail}
+                        {info.title === "WhatsApp" ? (
+                          <a 
+                            href={`https://wa.me/${detail.replace(/[^0-9]/g, '')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-primary hover:text-primary/80 transition-colors flex items-center gap-2"
+                          >
+                            <MessageCircle className="h-4 w-4" />
+                            {detail}
+                          </a>
+                        ) : info.title === "Phone" ? (
+                          <a 
+                            href={`tel:${detail}`}
+                            className="text-primary hover:text-primary/80 transition-colors"
+                          >
+                            {detail}
+                          </a>
+                        ) : info.title === "Email" ? (
+                          <a 
+                            href={`mailto:${detail}`}
+                            className="text-primary hover:text-primary/80 transition-colors"
+                          >
+                            {detail}
+                          </a>
+                        ) : (
+                          detail
+                        )}
                       </div>
                     ))}
                   </div>
@@ -294,10 +327,23 @@ const Contact = () => {
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
 
-                  <div className="bg-primary/10 p-4 rounded-lg">
-                    <div className="text-primary text-sm">
-                      <strong>Need Immediate Assistance?</strong> Call us at +91-9987345010 
-                      for urgent logistics requirements or emergency support.
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-primary/10 p-4 rounded-lg">
+                      <div className="text-primary text-sm">
+                        <strong>Need Immediate Assistance?</strong> Call us at +91-9987345010 
+                        for urgent logistics requirements.
+                      </div>
+                    </div>
+                    <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                      <a 
+                        href="https://wa.me/919987345010?text=Hello,%20I%20need%20help%20with%20logistics%20services"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors text-sm"
+                      >
+                        <MessageCircle className="h-4 w-4" />
+                        <strong>WhatsApp Us</strong> for quick support
+                      </a>
                     </div>
                   </div>
                 </form>
