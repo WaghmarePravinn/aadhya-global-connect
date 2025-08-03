@@ -29,6 +29,33 @@ const Leadership = () => {
       description: "International trade specialist with deep expertise in customs regulations, global partnerships, and cross-border logistics.",
       icon: Award,
       achievements: ["200+ Countries Coverage", "Customs Expertise", "Trade Compliance"]
+    },
+    {
+      name: "Reshmaji Patil",
+      position: "Head of Regional Operations",
+      experience: "8+ Years",
+      specialty: "Regional Logistics & Distribution",
+      description: "Regional operations expert specializing in last-mile delivery optimization and regional distribution network management.",
+      icon: Trophy,
+      achievements: ["Regional Hub Expansion", "Last-Mile Innovation", "Cost Optimization 25%"]
+    },
+    {
+      name: "Pravin Waghmare",
+      position: "Technology Director",
+      experience: "9+ Years",
+      specialty: "Logistics Technology & Innovation",
+      description: "Technology innovator focused on developing cutting-edge solutions for modern logistics challenges and digital transformation.",
+      icon: User,
+      achievements: ["AI Integration", "Mobile App Development", "IoT Implementation"]
+    },
+    {
+      name: "Aadhya Yadav",
+      position: "Customer Experience Manager",
+      experience: "6+ Years",
+      specialty: "Customer Relations & Service Excellence",
+      description: "Customer experience specialist dedicated to ensuring exceptional service delivery and building long-term customer relationships.",
+      icon: Users,
+      achievements: ["Customer Retention 95%", "Service Quality Awards", "24/7 Support Implementation"]
     }
   ];
 

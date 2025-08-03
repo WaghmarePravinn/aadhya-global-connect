@@ -9,15 +9,23 @@ import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Partners from "@/components/Partners";
+import RateCalculator from "@/components/RateCalculator";
+import Testimonials from "@/components/Testimonials";
+import LiveUpdates from "@/components/LiveUpdates";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <RateCalculator />
       <About />
-      <Leadership />
       <Services />
+      <Partners />
+      <Leadership />
+      <LiveUpdates />
+      <Testimonials />
       <PortsComingSoon />
       <Gallery />
       <Contact />
