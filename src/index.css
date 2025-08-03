@@ -21,10 +21,10 @@ All colors MUST be HSL.
     --popover-foreground: 0 0% 15%;
 
     /* Primary Blue: Professional Logistics Blue */
-    --primary: 214 100% 40%;
+    --primary: 214 85% 45%;
     --primary-foreground: 0 0% 100%;
     /* Hover/Accent: Lighter Blue */
-    --primary-glow: 214 100% 45%;
+    --primary-glow: 214 85% 50%;
 
     /* Muted Section BG: Very Light Gray */
     --secondary: 0 0% 97%;
@@ -38,15 +38,15 @@ All colors MUST be HSL.
     --accent: 0 0% 94%;
     --accent-foreground: 0 0% 20%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 70% 58%;
     --destructive-foreground: 0 0% 98%;
 
-    --highlight: 0 84% 60%;
+    --highlight: 0 70% 58%;
     --highlight-foreground: 0 0% 98%;
 
     --border: 0 0% 93%;
     --input: 0 0% 95%;
-    --ring: 214 100% 40%;
+    --ring: 214 85% 45%;
 
     --radius: 0.5rem;
 

@@ -183,38 +183,38 @@ const LiveUpdates = () => {
 
         {/* Network Status */}
         <div className="mt-16">
-          <Card className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border-white/20">
+          <Card className="bg-gradient-to-r from-slate-900 to-blue-900 backdrop-blur-sm border-blue-500/30">
             <CardContent className="p-8">
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-white mb-4">Network Status: All Systems Operational</h3>
+                <h3 className="text-2xl font-bold text-blue-200 mb-4">Network Status: All Systems Operational</h3>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   <div className="text-center">
                     <div className="flex items-center justify-center space-x-2 mb-2">
-                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-green-300 font-semibold">Mumbai Hub</span>
+                      <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                      <span className="text-blue-300 font-semibold">Mumbai Hub</span>
                     </div>
-                    <span className="text-sm text-white/70">99.9% Uptime</span>
+                    <span className="text-sm text-slate-300">99.9% Uptime</span>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center space-x-2 mb-2">
-                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-green-300 font-semibold">Delhi Hub</span>
+                      <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                      <span className="text-blue-300 font-semibold">Delhi Hub</span>
                     </div>
-                    <span className="text-sm text-white/70">100% Uptime</span>
+                    <span className="text-sm text-slate-300">100% Uptime</span>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center space-x-2 mb-2">
-                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-green-300 font-semibold">Bangalore Hub</span>
+                      <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                      <span className="text-blue-300 font-semibold">Bangalore Hub</span>
                     </div>
-                    <span className="text-sm text-white/70">99.8% Uptime</span>
+                    <span className="text-sm text-slate-300">99.8% Uptime</span>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center space-x-2 mb-2">
-                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-green-300 font-semibold">Chennai Hub</span>
+                      <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
+                      <span className="text-blue-300 font-semibold">Chennai Hub</span>
                     </div>
-                    <span className="text-sm text-white/70">99.9% Uptime</span>
+                    <span className="text-sm text-slate-300">99.9% Uptime</span>
                   </div>
                 </div>
               </div>

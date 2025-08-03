@@ -39,11 +39,11 @@ const PortsComingSoon = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-red-50 to-white">
+    <section className="py-20 bg-gradient-to-br from-blue-50 to-red-50/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <Bell className="h-8 w-8 text-red-600 animate-pulse" />
+            <Bell className="h-8 w-8 text-blue-600 animate-pulse" />
             <h2 className="text-4xl font-bold text-gray-900">Ports Coming Soon</h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -55,7 +55,7 @@ const PortsComingSoon = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {upcomingPorts.map((port, index) => (
             <Card key={index} className="border-0 shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl overflow-hidden">
-              <CardHeader className={`${port.type === 'International' ? 'bg-gradient-to-r from-red-600 to-red-700' : 'bg-gradient-to-r from-red-500 to-red-600'} text-white`}>
+              <CardHeader className={`${port.type === 'International' ? 'bg-gradient-to-r from-blue-500 to-red-400' : 'bg-gradient-to-r from-blue-400 to-red-300'} text-white`}>
                 <div className="text-center">
                   <port.icon className="h-12 w-12 mx-auto mb-3 animate-bounce" />
                   <CardTitle className="text-lg">{port.name}</CardTitle>
@@ -69,8 +69,8 @@ const PortsComingSoon = () => {
               <CardContent className="p-6 space-y-4">
                 <div className="text-center">
                   <div className="flex items-center justify-center space-x-2 mb-3">
-                    <Calendar className="h-4 w-4 text-red-500" />
-                    <span className="text-sm font-bold text-red-600">{port.status}</span>
+                    <Calendar className="h-4 w-4 text-blue-500" />
+                    <span className="text-sm font-bold text-blue-600">{port.status}</span>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{port.description}</p>
                 </div>
@@ -80,7 +80,7 @@ const PortsComingSoon = () => {
                   <div className="space-y-1">
                     {port.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                         <span className="text-xs text-gray-600">{feature}</span>
                       </div>
                     ))}
@@ -100,7 +100,7 @@ const PortsComingSoon = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
             <Button 
-              className="bg-red-600 hover:bg-red-700 transform hover:scale-105 transition-all duration-300"
+              className="bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-300"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Bell className="mr-2 h-4 w-4" />
@@ -108,7 +108,7 @@ const PortsComingSoon = () => {
             </Button>
             <Button 
               variant="outline" 
-              className="border-red-600 text-red-600 hover:bg-red-50"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Contact for Details
@@ -119,22 +119,22 @@ const PortsComingSoon = () => {
         {/* Port Statistics Preview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
           <div className="text-center p-6 bg-white rounded-xl shadow-lg">
-            <div className="text-3xl font-bold text-red-600">4+</div>
+            <div className="text-3xl font-bold text-blue-600">4+</div>
             <div className="text-gray-600">Major Ports</div>
             <div className="text-sm text-gray-500">Coming Soon</div>
           </div>
           <div className="text-center p-6 bg-white rounded-xl shadow-lg">
-            <div className="text-3xl font-bold text-red-600">500+</div>
+            <div className="text-3xl font-bold text-blue-600">500+</div>
             <div className="text-gray-600">TEU Capacity</div>
             <div className="text-sm text-gray-500">Daily Handling</div>
           </div>
           <div className="text-center p-6 bg-white rounded-xl shadow-lg">
-            <div className="text-3xl font-bold text-red-600">50+</div>
+            <div className="text-3xl font-bold text-blue-600">50+</div>
             <div className="text-gray-600">Countries</div>
             <div className="text-sm text-gray-500">Global Reach</div>
           </div>
           <div className="text-center p-6 bg-white rounded-xl shadow-lg">
-            <div className="text-3xl font-bold text-red-600">24/7</div>
+            <div className="text-3xl font-bold text-blue-600">24/7</div>
             <div className="text-gray-600">Operations</div>
             <div className="text-sm text-gray-500">Port Services</div>
           </div>

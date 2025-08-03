@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import manojYadavImg from "@/assets/team/manoj-yadav.jpg";
 import priyaSharmaImg from "@/assets/team/priya-sharma.jpg";
 import rajeshKumarImg from "@/assets/team/rajesh-kumar.jpg";
-import reshmajiPatilImg from "@/assets/team/reshmaji-patil.jpg";
+import reshmajiPatilImg from "@/assets/team/reshmaji-patil-new.jpg";
 import pravinWaghmareImg from "@/assets/team/pravin-waghmare.jpg";
 import aadhyaYadavImg from "@/assets/team/aadhya-yadav.jpg";
 
@@ -50,16 +50,6 @@ const Leadership = () => {
       icon: Trophy,
       image: reshmajiPatilImg,
       achievements: ["Regional Hub Expansion", "Last-Mile Innovation", "Cost Optimization 25%"]
-    },
-    {
-      name: "Pravin Waghmare",
-      position: "Technology Director",
-      experience: "9+ Years",
-      specialty: "Logistics Technology & Innovation",
-      description: "Technology innovator focused on developing cutting-edge solutions for modern logistics challenges and digital transformation.",
-      icon: User,
-      image: pravinWaghmareImg,
-      achievements: ["AI Integration", "Mobile App Development", "IoT Implementation"]
     },
     {
       name: "Aadhya Yadav",
