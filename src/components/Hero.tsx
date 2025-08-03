@@ -1,8 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Truck, Package, Globe, Clock, Calculator } from "lucide-react";
 import { useState } from "react";
 import TrackingModal from "./TrackingModal";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   const [isTrackingOpen, setIsTrackingOpen] = useState(false);
@@ -10,8 +10,14 @@ const Hero = () => {
   return (
     <>
       <section id="home" className="pt-16 relative min-h-screen flex items-center overflow-hidden">
-        {/* Modern Professional Background */}
+        {/* Professional Background with Hero Image */}
         <div className="absolute inset-0" style={{background: 'var(--gradient-hero)'}}>
+          {/* Hero Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+            style={{ backgroundImage: `url(${heroBg})` }}
+          ></div>
+          
           {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 opacity-[0.02]">
             <div className="absolute inset-0" style={{

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import TrackingModal from "./TrackingModal";
+import agsLogo from "@/assets/ags-logo.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,6 @@ const Navigation = () => {
     { href: "#contact", label: "Contact" },
   ];
 
-
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-40">
@@ -25,14 +25,16 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 hover-lift">
-              <img 
-                src="/src/assets/logo.png" 
-                alt="Aadthya Global Logistics" 
-                className="w-10 h-10 object-contain"
-              />
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img 
+                  src={agsLogo} 
+                  alt="AGS Logistics"
+                  className="w-8 h-8 object-contain"
+                />
+              </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-foreground">Aadthya Global</span>
-                <span className="text-xs text-muted-foreground">Logistics</span>
+                <span className="text-xl font-bold text-foreground">AGS Logistics</span>
+                <span className="text-xs text-muted-foreground">Global Shipping</span>
               </div>
             </Link>
 
