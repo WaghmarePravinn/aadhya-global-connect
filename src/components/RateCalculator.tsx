@@ -36,7 +36,7 @@ const RateCalculator = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
+    <section id="rate-calculator" className="py-20 bg-gradient-to-br from-primary/5 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-6">Calculate Shipping Rates</h2>
@@ -126,9 +126,16 @@ const RateCalculator = () => {
               <Button 
                 onClick={calculateRate}
                 disabled={!formData.fromCity || !formData.toCity || !formData.weight || !formData.serviceType || isCalculating}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
+                className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transform hover:scale-105 transition-all duration-300 active:scale-95"
               >
-                {isCalculating ? "Calculating..." : "Calculate Rate"}
+                {isCalculating ? (
+                  <div className="flex items-center space-x-2">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-foreground"></div>
+                    <span>Calculating...</span>
+                  </div>
+                ) : (
+                  "Calculate Rate"
+                )}
               </Button>
             </CardContent>
           </Card>
@@ -161,7 +168,10 @@ const RateCalculator = () => {
                         <span className="font-medium capitalize">{formData.serviceType}</span>
                       </div>
                     </div>
-                    <Button className="w-full mt-6 bg-gradient-to-r from-blue-500 to-blue-600">
+                    <Button 
+                      className="w-full mt-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transform hover:scale-105 transition-all duration-300 active:scale-95"
+                      onClick={() => window.open('https://wa.me/9370257220', '_blank')}
+                    >
                       Book Shipment
                     </Button>
                   </div>
@@ -172,22 +182,30 @@ const RateCalculator = () => {
             <Card className="shadow-lg">
               <CardContent className="p-6">
                 <h3 className="font-bold text-slate-900 mb-4">Why Choose Our Service?</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-slate-600">Transparent pricing with no hidden fees</span>
+                  <div className="space-y-3">
+                  <div className="flex items-center space-x-3 group cursor-pointer">
+                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                      <span className="text-red-600 font-semibold">Transparent pricing</span> with no hidden fees
+                    </span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-slate-600">Real-time tracking for all shipments</span>
+                  <div className="flex items-center space-x-3 group cursor-pointer">
+                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                      <span className="text-red-600 font-semibold">Real-time tracking</span> for all shipments
+                    </span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-slate-600">Insurance coverage available</span>
+                  <div className="flex items-center space-x-3 group cursor-pointer">
+                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                      <span className="text-red-600 font-semibold">Insurance coverage</span> available
+                    </span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-slate-600">24/7 customer support</span>
+                  <div className="flex items-center space-x-3 group cursor-pointer">
+                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                      <span className="text-red-600 font-semibold">24/7 customer support</span>
+                    </span>
                   </div>
                 </div>
               </CardContent>
