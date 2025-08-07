@@ -9,51 +9,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Background: Soft White */
-    --background: 0 0% 99%;
-    /* Text Primary: Softer Dark Gray */
-    --foreground: 0 0% 15%;
+    /* Background: Clean White */
+    --background: 0 0% 100%;
+    /* Text Primary: Dark Charcoal */
+    --foreground: 220 26% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card-foreground: 220 26% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover-foreground: 220 26% 18%;
 
-    /* Primary Blue: Professional Logistics Blue */
-    --primary: 214 85% 45%;
+    /* Primary: Deep Navy Blue - Professional Trust */
+    --primary: 218 70% 32%;
     --primary-foreground: 0 0% 100%;
-    /* Hover/Accent: Lighter Blue */
-    --primary-glow: 214 85% 50%;
+    /* Hover/Active: Slightly Lighter Navy */
+    --primary-glow: 218 70% 38%;
 
-    /* Muted Section BG: Very Light Gray */
-    --secondary: 0 0% 97%;
-    /* Text Secondary: Lighter Gray */
-    --secondary-foreground: 0 0% 50%;
+    /* Secondary: Bright Orange - Action & Energy */
+    --secondary: 20 90% 48%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 97%;
-    --muted-foreground: 0 0% 50%;
+    /* Muted Section BG: Light Blue-Gray */
+    --muted: 213 27% 96%;
+    --muted-foreground: 220 26% 45%;
 
-    /* Accent: Light Gray */
-    --accent: 0 0% 94%;
-    --accent-foreground: 0 0% 20%;
+    /* Accent: Bright Orange for CTAs */
+    --accent: 20 90% 48%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 58%;
     --destructive-foreground: 0 0% 98%;
 
-    --highlight: 0 70% 58%;
-    --highlight-foreground: 0 0% 98%;
+    --highlight: 20 90% 48%;
+    --highlight-foreground: 0 0% 100%;
 
-    --border: 0 0% 93%;
-    --input: 0 0% 95%;
-    --ring: 214 85% 45%;
+    --border: 213 27% 90%;
+    --input: 213 27% 96%;
+    --ring: 218 70% 32%;
 
     --radius: 0.5rem;
 
-    /* Professional Blue Gradients */
+    /* Professional Trust Palette Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(214 100% 97%) 0%, hsl(214 32% 91%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(214 32% 97%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(213 27% 98%) 0%, hsl(213 27% 94%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(213 27% 98%) 100%);
     --shadow-blue: 0 10px 30px -10px hsl(var(--primary) / 0.3);
     --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
 
@@ -68,50 +68,57 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 7%;
+    /* Background: Deep Navy for Trust */
+    --background: 218 70% 8%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 10%;
+    --card: 218 70% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 10%;
+    --popover: 218 70% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 214 100% 50%;
-    --primary-foreground: 0 0% 0%;
-    --primary-glow: 214 100% 55%;
+    /* Primary: Brighter Navy for Dark Mode */
+    --primary: 218 85% 55%;
+    --primary-foreground: 218 70% 8%;
+    --primary-glow: 218 85% 65%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 80%;
+    /* Secondary: Bright Orange - Consistent Energy */
+    --secondary: 20 90% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 218 70% 15%;
+    --muted-foreground: 213 27% 70%;
 
-    --accent: 0 0% 100%;
-    --accent-foreground: 0 0% 0%;
+    /* Accent: Bright Orange for Dark Mode CTAs */
+    --accent: 20 90% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 214 100% 50%;
+    --highlight: 20 90% 55%;
+    --highlight-foreground: 0 0% 100%;
 
-    /* Professional Blue Dark Mode Gradients */
+    --border: 218 70% 20%;
+    --input: 218 70% 18%;
+    --ring: 218 85% 55%;
+
+    /* Professional Trust Dark Mode Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(214 100% 20%) 0%, hsl(214 32% 15%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(214 32% 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(218 70% 15%) 0%, hsl(218 70% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(218 70% 12%) 0%, hsl(218 70% 16%) 100%);
     --shadow-blue: 0 10px 30px -10px hsl(var(--primary) / 0.4);
     --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.5);
 
-    --sidebar-background: 0 0% 10%;
+    --sidebar-background: 218 70% 10%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 214 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 15%;
+    --sidebar-primary: 218 85% 55%;
+    --sidebar-primary-foreground: 218 70% 8%;
+    --sidebar-accent: 218 70% 15%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 214 100% 50%;
+    --sidebar-border: 218 70% 20%;
+    --sidebar-ring: 218 85% 55%;
   }
 }
 
