@@ -22,7 +22,7 @@ const TrackingModal: React.FC<TrackingModalProps> = ({ isOpen, onClose }) => {
       estimatedDelivery: '2025-01-12',
       progress: 75,
       timeline: [
-        { status: 'Order Placed', location: 'Pune', date: '2025-01-08', time: '10:30 AM', completed: true },
+        { status: 'Order Placed', location: 'Pune', date: '2025-01-08', time: '9:30 AM', completed: true },
         { status: 'Picked Up', location: 'Pune Warehouse', date: '2025-01-08', time: '02:15 PM', completed: true },
         { status: 'In Transit', location: 'Mumbai Hub', date: '2025-01-09', time: '08:45 AM', completed: true },
         { status: 'Out for Delivery', location: 'Destination City', date: '2025-01-12', time: 'Expected', completed: false },

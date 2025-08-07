@@ -40,7 +40,7 @@ const Hero = () => {
 
   return (
     <>
-      <section id="home" className="pt-16 relative min-h-screen flex items-center overflow-hidden">
+      <section id="home" className="pt-20 relative min-h-screen flex items-center overflow-hidden">
         {/* Enhanced Professional Background */}
         <div className="absolute inset-0">
           {/* Dynamic Gradient Background */}

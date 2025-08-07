@@ -13,12 +13,15 @@ import Partners from "@/components/Partners";
 import RateCalculator from "@/components/RateCalculator";
 import Testimonials from "@/components/Testimonials";
 import LiveUpdates from "@/components/LiveUpdates";
+import BusinessCredibility from "@/components/BusinessCredibility";
+import EnhancedCTA from "@/components/EnhancedCTA";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <BusinessCredibility />
       <RateCalculator />
       <About />
       <Services />
@@ -26,6 +29,7 @@ const Index = () => {
       <Leadership />
       <LiveUpdates />
       <Testimonials />
+      <EnhancedCTA />
       <PortsComingSoon />
       <Gallery />
       <Contact />

@@ -20,21 +20,31 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-40">
+      <nav className="fixed top-0 left-0 right-0 bg-background/98 backdrop-blur-lg border-b border-border/50 z-50 shadow-lg"
+           style={{background: 'linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)/0.95) 100%)'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 hover-lift">
-              <div className="w-10 h-10 flex items-center justify-center">
-                <img 
-                  src={agsLogo} 
-                  alt="AGS Logistics"
-                  className="w-8 h-8 object-contain"
-                />
+          <div className="flex justify-between items-center h-20">
+            {/* Enhanced Professional Logo */}
+            <Link to="/" className="flex items-center space-x-4 hover-lift group">
+              <div className="relative">
+                {/* Logo Container with Professional Styling */}
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105">
+                  <img 
+                    src={agsLogo} 
+                    alt="AGS Logistics - India's Most Trusted Shipping Partner"
+                    className="w-10 h-10 object-contain filter brightness-0 invert"
+                  />
+                </div>
+                {/* Professional Glow Effect */}
+                <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-foreground">AGS Logistics</span>
-                <span className="text-xs text-muted-foreground">Global Shipping</span>
+                <span className="text-2xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
+                  AGS Logistics
+                </span>
+                <span className="text-sm text-primary font-medium tracking-wide">
+                  Trusted • Fast • Reliable
+                </span>
               </div>
             </Link>
 
