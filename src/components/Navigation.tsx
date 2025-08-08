@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import TrackingModal from "./TrackingModal";
-import agsLogo from "@/assets/ags-logo-new.png";
+import agsLogo from "@/assets/ags-logo-uploaded.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
