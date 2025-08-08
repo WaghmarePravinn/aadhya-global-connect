@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import TrackingModal from "./TrackingModal";
-import agsLogo from "@/assets/ags-logo.png";
+import agsLogo from "@/assets/ags-logo-new.png";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,19 +31,19 @@ const Navigation = () => {
                 <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105">
                   <img 
                     src={agsLogo} 
-                    alt="AGS Logistics - India's Most Trusted Shipping Partner"
-                    className="w-10 h-10 object-contain filter brightness-0 invert"
+                    alt="Aadhya Global Services & Logistics - India's Most Trusted Shipping Partner"
+                    className="w-10 h-10 object-contain"
                   />
                 </div>
                 {/* Professional Glow Effect */}
                 <div className="absolute inset-0 bg-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
-                  AGS Logistics
+                <span className="text-xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
+                  Aadhya Global Services
                 </span>
                 <span className="text-sm text-primary font-medium tracking-wide">
-                  Trusted • Fast • Reliable
+                  & Logistics (AGS) • Trusted • Fast
                 </span>
               </div>
             </Link>

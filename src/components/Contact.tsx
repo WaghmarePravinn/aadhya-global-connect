@@ -206,14 +206,14 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="p-0">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2653398203925!2d73.92105037516442!3d18.51162327090433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea8b1234abcd%3A0x1234567890abcdef!2sLohegaon%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.8234567890123!2d73.9210504!3d18.5116233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2ea74e14b8ad9%3A0x5d2c4a7b8c9d0e1f!2sShop%20No%20B-8%20(A)%2C%20Aurum%20Elementto%2C%20Porwal%20Rd%2C%20Lohegaon%2C%20Pune%2C%20Maharashtra%20411047!5e0!3m2!1sen!2sin!4v1647891234567!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0, borderRadius: '0 0 8px 8px' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="AGS Logistics Location"
+                  title="Aadhya Global Services & Logistics Location"
                 />
               </CardContent>
             </Card>

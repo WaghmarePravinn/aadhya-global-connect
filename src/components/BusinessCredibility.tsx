@@ -50,7 +50,7 @@ const BusinessCredibility = () => {
             Your Trust, Our Commitment
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-slide-up">
-            Why Choose <span className="text-primary">AGS Logistics?</span>
+            Why Choose <span className="text-primary">Aadhya Global Services?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
             We're not just a logistics company - we're your strategic partner in growth, 

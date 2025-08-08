@@ -130,7 +130,7 @@ const Hero = () => {
                   <span className="inline-block animate-slide-up" style={{animationDelay: '0.8s'}}>Across India</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up" style={{animationDelay: '1s'}}>
-                  From parcels to freight, we deliver with care. Your trusted logistics partner 
+                  From parcels to freight, Aadhya Global Services delivers with care. Your trusted logistics partner 
                   for comprehensive shipping solutions with real-time tracking and competitive rates.
                 </p>
               </div>
