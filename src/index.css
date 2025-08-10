@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,11 +38,11 @@ All colors MUST be HSL.
     --radius: 0.5rem;
     
     /* Strategic Design Tokens for Conversion */
-    --gradient-primary: linear-gradient(135deg, hsl(7 78% 49%), hsl(7 78% 59%));
+    --gradient-primary: linear-gradient(135deg, #dc291e, #e63946);
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
-    --shadow-elegant: 0 10px 30px -10px hsl(7 78% 49% / 0.2);
+    --shadow-elegant: 0 10px 30px -10px rgba(220, 41, 30, 0.2);
     --shadow-card: 0 4px 15px -2px hsl(0 0% 0% / 0.1);
-    --shadow-glow: 0 0 40px hsl(7 78% 49% / 0.3);
+    --shadow-glow: 0 0 40px rgba(220, 41, 30, 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
@@ -111,6 +110,33 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
+}
+
+/* Red Theme Specific Animations */
+@keyframes red-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 41, 30, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 41, 30, 0);
+  }
+}
+
+@keyframes red-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(220, 41, 30, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(220, 41, 30, 0.6);
+  }
+}
+
+.animate-red-pulse {
+  animation: red-pulse 2s infinite;
+}
+
+.animate-red-glow {
+  animation: red-glow 3s ease-in-out infinite;
 }
 
 /* Professional Animations */
@@ -277,7 +303,7 @@ All colors MUST be HSL.
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+  animation: red-glow 3s ease-in-out infinite;
 }
 
 .animate-rotate-slow {
@@ -310,6 +336,19 @@ button:active {
   transform: scale(0.96);
 }
 
+/* Red Theme Button Enhancements */
+.btn-red-primary {
+  background: linear-gradient(135deg, #dc291e, #b8241a);
+  box-shadow: 0 4px 15px rgba(220, 41, 30, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-red-primary:hover {
+  background: linear-gradient(135deg, #b8241a, #a01f17);
+  box-shadow: 0 8px 25px rgba(220, 41, 30, 0.4);
+  transform: translateY(-2px) scale(1.05);
+}
+
 /* Professional card hover effects */
 .card-hover {
   transition: all 0.3s ease;
@@ -320,9 +359,27 @@ button:active {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+/* Red Theme Card Effects */
+.card-red-accent {
+  border-left: 4px solid #dc291e;
+  transition: all 0.3s ease;
+}
+
+.card-red-accent:hover {
+  border-left-width: 8px;
+  box-shadow: 0 10px 30px rgba(220, 41, 30, 0.1);
+}
+
 /* Gradient text effects */
 .gradient-text {
-  background: linear-gradient(135deg, #10b981, #06b6d4, #3b82f6);
+  background: linear-gradient(135deg, #dc291e, #e63946, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-red {
+  background: linear-gradient(135deg, #dc291e, #ff4757);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -356,7 +413,8 @@ button:active {
 /* Interactive form elements */
 .form-input:focus {
   transform: scale(1.02);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(220, 41, 30, 0.1);
+  border-color: #dc291e;
 }
 
 /* Professional modal animations */
@@ -373,5 +431,24 @@ button:active {
   
   .animate-pulse {
     animation-duration: 3s;
+  }
+}
+
+/* Red Theme Responsive Enhancements */
+@media (max-width: 768px) {
+  .btn-red-primary {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .gradient-text-red {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-red-primary {
+    width: 100%;
+    text-align: center;
   }
 }
