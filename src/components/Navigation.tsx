@@ -12,10 +12,11 @@ const Navigation = () => {
   const navItems = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About Us" },
-    { href: "#services", label: "Services" },
-    { href: "#rate-calculator", label: "Rates" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#contact", label: "Contact" },
+            { href: "#services", label: "Services" },
+            { href: "#team", label: "Team" },
+            { href: "#rate-calculator", label: "Rates" },
+            { href: "#gallery", label: "Gallery" },
+            { href: "#contact", label: "Contact" },
   ];
 
   return (
@@ -60,9 +61,8 @@ const Navigation = () => {
                 </a>
               ))}
               <Button 
-                variant="outline" 
+                variant="cta" 
                 onClick={() => setIsTrackingModalOpen(true)}
-                className="bg-background text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 Track Package
               </Button>
@@ -97,12 +97,12 @@ const Navigation = () => {
                 ))}
                 <div className="px-3 py-2">
                   <Button 
-                    variant="outline" 
+                    variant="cta" 
                     onClick={() => {
                       setIsTrackingModalOpen(true);
                       setIsMenuOpen(false);
                     }}
-                    className="w-full bg-background text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="w-full"
                   >
                     Track Package
                   </Button>
