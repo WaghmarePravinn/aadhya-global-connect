@@ -45,14 +45,14 @@ const BusinessCredibility = () => {
     <section className="py-20 bg-gradient-to-r from-muted/30 to-muted/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium mb-6 animate-bounce-in">
+          <div className="inline-flex items-center px-4 py-2 rounded-full font-medium mb-6 animate-bounce-in" style={{backgroundColor: 'rgba(220, 41, 30, 0.1)', color: '#dc291e'}}>
             <Shield className="w-4 h-4 mr-2" />
             Your Trust, Our Commitment
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-slide-up">
-            Why Choose <span className="text-primary">Aadhya Global Services?</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6 animate-slide-up">
+            Why Choose <span style={{color: '#dc291e'}}>Aadhya Global Services?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in">
             We're not just a logistics company - we're your strategic partner in growth, 
             backed by certifications, experience, and an unwavering commitment to excellence.
           </p>
@@ -72,7 +72,7 @@ const BusinessCredibility = () => {
                 <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {credential.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                <p className="text-gray-600 leading-relaxed group-hover:text-black transition-colors">
                   {credential.description}
                 </p>
               </CardContent>
@@ -83,20 +83,20 @@ const BusinessCredibility = () => {
         {/* Professional Trust Indicators */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="animate-fade-in" style={{animationDelay: '0.8s'}}>
-            <div className="text-4xl font-bold text-primary mb-2">50L+</div>
-            <div className="text-muted-foreground">Tonnes Delivered</div>
+            <div className="text-4xl font-bold mb-2" style={{color: '#dc291e'}}>50L+</div>
+            <div className="text-gray-600">Tonnes Delivered</div>
           </div>
           <div className="animate-fade-in" style={{animationDelay: '1s'}}>
-            <div className="text-4xl font-bold text-primary mb-2">15K+</div>
-            <div className="text-muted-foreground">Fleet Vehicles</div>
+            <div className="text-4xl font-bold mb-2" style={{color: '#dc291e'}}>15K+</div>
+            <div className="text-gray-600">Fleet Vehicles</div>
           </div>
           <div className="animate-fade-in" style={{animationDelay: '1.2s'}}>
-            <div className="text-4xl font-bold text-primary mb-2">99.8%</div>
-            <div className="text-muted-foreground">Network Coverage</div>
+            <div className="text-4xl font-bold mb-2" style={{color: '#dc291e'}}>99.8%</div>
+            <div className="text-gray-600">Network Coverage</div>
           </div>
           <div className="animate-fade-in" style={{animationDelay: '1.4s'}}>
-            <div className="text-4xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-muted-foreground">Support Available</div>
+            <div className="text-4xl font-bold mb-2" style={{color: '#dc291e'}}>24/7</div>
+            <div className="text-gray-600">Support Available</div>
           </div>
         </div>
       </div>

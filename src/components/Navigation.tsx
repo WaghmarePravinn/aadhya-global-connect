@@ -55,13 +55,13 @@ const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium hover-lift"
+                  className="nav-link text-black hover:text-[#dc291e] transition-colors duration-200 font-medium hover-lift"
                 >
                   {item.label}
                 </a>
               ))}
               <Button 
-                variant="cta" 
+                className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
                 onClick={() => setIsTrackingModalOpen(true)}
               >
                 Track Package
@@ -89,7 +89,7 @@ const Navigation = () => {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-200 hover-lift"
+                    className="block px-3 py-2 nav-link text-black hover:text-[#dc291e] transition-colors duration-200 hover-lift"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -97,12 +97,11 @@ const Navigation = () => {
                 ))}
                 <div className="px-3 py-2">
                   <Button 
-                    variant="cta" 
+                    className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 w-full"
                     onClick={() => {
                       setIsTrackingModalOpen(true);
                       setIsMenuOpen(false);
                     }}
-                    className="w-full"
                   >
                     Track Package
                   </Button>

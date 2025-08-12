@@ -21,24 +21,24 @@ const Leadership = () => {
     },
     {
       name: "Reshmaji Patil",
-      title: "Technical Lead",
+      title: "Technical Head",
       image: reshmajiPatil,
       expertise: "Technology Solutions",
       description: "Leading technical innovation and system optimization for enhanced operational efficiency.",
     },
     {
       name: "Prabha Yadav",
-      title: "Head of Business Development",
+      title: "Operations Manager",
       image: manojYadav, // Using placeholder until actual image is provided
-      expertise: "Business Growth",
-      description: "Driving strategic partnerships and market expansion initiatives across global markets.",
+      expertise: "Operations Excellence",
+      description: "Ensuring seamless operations and process optimization for maximum efficiency.",
     },
     {
       name: "Anand Yadav",
-      title: "Head of Customer Solutions",
+      title: "Business Development Manager",
       image: manojYadav, // Using placeholder until actual image is provided
-      expertise: "Customer Excellence",
-      description: "Ensuring exceptional customer experiences and innovative solution delivery.",
+      expertise: "Business Growth",
+      description: "Driving strategic partnerships and market expansion initiatives.",
     }
   ];
 
@@ -47,16 +47,16 @@ const Leadership = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Our{" "}
-            <span className="text-primary">
+            <span style={{color: '#dc291e'}}>
               Leadership Team
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Experienced professionals driving innovation and excellence in global logistics solutions.
           </p>
-          <div className="mt-8 w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="mt-8 w-24 h-1 mx-auto rounded-full" style={{backgroundColor: '#dc291e'}}></div>
         </div>
 
         {/* Leadership Grid */}
@@ -85,19 +85,19 @@ const Leadership = () => {
 
                 {/* Content */}
                 <div className="text-center space-y-4">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-black group-hover:transition-colors duration-300" style={{'--hover-color': '#dc291e'}}>
                     {leader.name}
                   </h3>
-                  <p className="text-primary font-semibold text-sm tracking-wide uppercase">
+                  <p className="font-semibold text-sm tracking-wide uppercase" style={{color: '#dc291e'}}>
                     {leader.title}
                   </p>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     {leader.description}
                   </p>
                 </div>
 
                 {/* Hover Effect Border */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/20 rounded-lg transition-colors duration-500"></div>
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#dc291e]/20 rounded-lg transition-colors duration-500"></div>
               </CardContent>
             </Card>
           ))}
@@ -105,12 +105,13 @@ const Leadership = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16 animate-fade-in">
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-gray-600 mb-6">
             Ready to work with industry leaders?
           </p>
           <a 
             href="#contact" 
-            className="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-1"
+            className="inline-flex items-center px-8 py-3 text-white font-semibold rounded-lg hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-1"
+            style={{backgroundColor: '#dc291e'}}
           >
             Get in Touch
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

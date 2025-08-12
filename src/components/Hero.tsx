@@ -95,30 +95,30 @@ const Hero = () => {
                 
                 <h1 className="text-6xl lg:text-8xl font-black text-black leading-tight">
                   <span className="inline-block animate-slide-up" style={{animationDelay: '0.2s'}}>Ship</span>{' '}
-                  <span className="inline-block animate-slide-up text-[#dc291e]" style={{animationDelay: '0.4s'}}>Faster</span>
+                  <span className="inline-block animate-slide-up" style={{color: '#dc291e', animationDelay: '0.4s'}}>Faster</span>
                   <br />
                   <span className="inline-block animate-slide-up" style={{animationDelay: '0.6s'}}>Deliver</span>{' '}
-                  <span className="inline-block animate-slide-up text-[#dc291e]" style={{animationDelay: '0.8s'}}>Smarter</span>
+                  <span className="inline-block animate-slide-up" style={{color: '#dc291e', animationDelay: '0.8s'}}>Smarter</span>
                 </h1>
                 
                 <p className="text-2xl text-gray-700 leading-relaxed animate-slide-up font-medium" style={{animationDelay: '1s'}}>
                   Transform your business with India's most reliable logistics network. 
-                  <span className="text-[#dc291e] font-bold"> 99.2% on-time delivery</span> across 
-                  <span className="text-[#dc291e] font-bold"> 50,000+ locations</span>.
+                  <span style={{color: '#dc291e'}} className="font-bold"> 99.2% on-time delivery</span> across 
+                  <span style={{color: '#dc291e'}} className="font-bold"> 50,000+ locations</span>.
                 </p>
                 
                 {/* Trust Indicators */}
                 <div className="flex flex-wrap items-center gap-6 animate-slide-up" style={{animationDelay: '1.1s'}}>
                   <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-6 h-6 text-[#dc291e]" />
+                    <CheckCircle className="w-6 h-6" style={{color: '#dc291e'}} />
                     <span className="text-black font-semibold">ISO 9001:2015 Certified</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Shield className="w-6 h-6 text-[#dc291e]" />
+                    <Shield className="w-6 h-6" style={{color: '#dc291e'}} />
                     <span className="text-black font-semibold">100% Insured</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Clock className="w-6 h-6 text-[#dc291e]" />
+                    <Clock className="w-6 h-6" style={{color: '#dc291e'}} />
                     <span className="text-black font-semibold">24/7 Support</span>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ const Hero = () => {
                 <div className="flex flex-wrap gap-4">
                   <Button 
                     size="lg" 
-                    className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-10 py-6 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 rounded-xl"
+                    className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-12 py-8 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 rounded-xl mx-2"
                     onClick={() => {
                       const rateCalculator = document.getElementById('rate-calculator');
                       if (rateCalculator) {
@@ -144,8 +144,7 @@ const Hero = () => {
                   
                   <Button 
                     size="lg" 
-                    variant="outline" 
-                    className="border-3 border-[#dc291e] text-[#dc291e] hover:bg-[#dc291e] hover:text-white px-8 py-6 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl"
+                    className="border-3 border-[#dc291e] text-[#dc291e] hover:bg-[#dc291e] hover:text-white px-10 py-8 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl mx-2"
                     onClick={() => setIsTrackingOpen(true)}
                   >
                     <Package className="mr-3 h-6 w-6 group-hover:animate-bounce" />
@@ -156,8 +155,8 @@ const Hero = () => {
                 {/* Urgency & Social Proof */}
                 <div className="bg-[#dc291e]/5 border-l-4 border-[#dc291e] p-4 rounded-r-lg">
                   <p className="text-black font-semibold">
-                    🔥 <span className="text-[#dc291e]">Limited Time:</span> Get 20% off your first shipment! 
-                    <span className="text-[#dc291e] font-bold">Join 50,000+ satisfied customers</span>
+                    🔥 <span style={{color: '#dc291e'}}>Limited Time:</span> Get 20% off your first shipment! 
+                    <span style={{color: '#dc291e'}} className="font-bold">Join 50,000+ satisfied customers</span>
                   </p>
                 </div>
                 

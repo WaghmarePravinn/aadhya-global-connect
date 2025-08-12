@@ -39,15 +39,15 @@ const RateCalculator = () => {
     <section id="rate-calculator" className="py-20 bg-gradient-to-br from-primary/5 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-6">Calculate Shipping Rates</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-black mb-6">Calculate Shipping Rates</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Get instant quotes for your shipments with our advanced rate calculator.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <Card className="shadow-xl border-0">
-            <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-t-lg">
+            <CardHeader className="text-white rounded-t-lg" style={{background: 'linear-gradient(to right, #dc291e, #dc291e)'}}>
               <CardTitle className="flex items-center space-x-3">
                 <Calculator className="h-6 w-6" />
                 <span>Rate Calculator</span>
@@ -56,8 +56,8 @@ const RateCalculator = () => {
             <CardContent className="p-8 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="fromCity" className="flex items-center space-x-2">
-                    <MapPin className="h-4 w-4 text-blue-500" />
+                  <Label htmlFor="fromCity" className="flex items-center space-x-2 text-black">
+                    <MapPin className="h-4 w-4" style={{color: '#dc291e'}} />
                     <span>From City</span>
                   </Label>
                   <Input
@@ -68,8 +68,8 @@ const RateCalculator = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="toCity" className="flex items-center space-x-2">
-                    <MapPin className="h-4 w-4 text-blue-500" />
+                  <Label htmlFor="toCity" className="flex items-center space-x-2 text-black">
+                    <MapPin className="h-4 w-4" style={{color: '#dc291e'}} />
                     <span>To City</span>
                   </Label>
                   <Input
@@ -83,8 +83,8 @@ const RateCalculator = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="weight" className="flex items-center space-x-2">
-                    <Package className="h-4 w-4 text-blue-500" />
+                  <Label htmlFor="weight" className="flex items-center space-x-2 text-black">
+                    <Package className="h-4 w-4" style={{color: '#dc291e'}} />
                     <span>Weight (kg)</span>
                   </Label>
                   <Input
@@ -96,7 +96,7 @@ const RateCalculator = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="dimensions">Dimensions (L×W×H cm)</Label>
+                  <Label htmlFor="dimensions" className="text-black">Dimensions (L×W×H cm)</Label>
                   <Input
                     id="dimensions"
                     placeholder="e.g., 30×20×15"
@@ -107,8 +107,8 @@ const RateCalculator = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="serviceType" className="flex items-center space-x-2">
-                  <Truck className="h-4 w-4 text-blue-500" />
+                <Label htmlFor="serviceType" className="flex items-center space-x-2 text-black">
+                  <Truck className="h-4 w-4" style={{color: '#dc291e'}} />
                   <span>Service Type</span>
                 </Label>
                 <Select onValueChange={(value) => handleInputChange("serviceType", value)}>
@@ -126,11 +126,12 @@ const RateCalculator = () => {
               <Button 
                 onClick={calculateRate}
                 disabled={!formData.fromCity || !formData.toCity || !formData.weight || !formData.serviceType || isCalculating}
-                className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transform hover:scale-105 transition-all duration-300 active:scale-95"
+                className="w-full text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
+                style={{backgroundColor: '#dc291e'}}
               >
                 {isCalculating ? (
                   <div className="flex items-center space-x-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-foreground"></div>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
                     <span>Calculating...</span>
                   </div>
                 ) : (
@@ -142,34 +143,35 @@ const RateCalculator = () => {
 
           <div className="space-y-8">
             {calculatedRate && (
-              <Card className="shadow-xl border-0 bg-gradient-to-br from-green-50 to-green-100">
-                <CardHeader className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-t-lg">
+              <Card className="shadow-xl border-0 bg-gradient-to-br from-red-50 to-red-100">
+                <CardHeader className="text-white rounded-t-lg" style={{background: 'linear-gradient(to right, #dc291e, #dc291e)'}}>
                   <CardTitle>Calculated Rate</CardTitle>
                 </CardHeader>
                 <CardContent className="p-8">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-green-600 mb-4">
+                    <div className="text-4xl font-bold mb-4" style={{color: '#dc291e'}}>
                       ₹{calculatedRate.toFixed(2)}
                     </div>
-                    <p className="text-slate-600 mb-6">
+                    <p className="text-gray-600 mb-6">
                       Estimated cost for your shipment
                     </p>
                     <div className="space-y-3 text-left">
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Route:</span>
+                        <span className="text-gray-600">Route:</span>
                         <span className="font-medium">{formData.fromCity} → {formData.toCity}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Weight:</span>
+                        <span className="text-gray-600">Weight:</span>
                         <span className="font-medium">{formData.weight} kg</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-600">Service:</span>
+                        <span className="text-gray-600">Service:</span>
                         <span className="font-medium capitalize">{formData.serviceType}</span>
                       </div>
                     </div>
                     <Button 
-                      className="w-full mt-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transform hover:scale-105 transition-all duration-300 active:scale-95"
+                      className="w-full mt-6 text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
+                      style={{backgroundColor: '#dc291e'}}
                       onClick={() => window.open('https://wa.me/9370257220', '_blank')}
                     >
                       Book Shipment
@@ -181,30 +183,30 @@ const RateCalculator = () => {
 
             <Card className="shadow-lg">
               <CardContent className="p-6">
-                <h3 className="font-bold text-slate-900 mb-4">Why Choose Our Service?</h3>
+                <h3 className="font-bold text-black mb-4">Why Choose Our Service?</h3>
                   <div className="space-y-3">
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                      <span className="text-red-600 font-semibold">Transparent pricing</span> with no hidden fees
+                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <span className="text-gray-600 group-hover:text-black transition-colors">
+                      <span style={{color: '#dc291e'}} className="font-semibold">Transparent pricing</span> with no hidden fees
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                      <span className="text-red-600 font-semibold">Real-time tracking</span> for all shipments
+                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <span className="text-gray-600 group-hover:text-black transition-colors">
+                      <span style={{color: '#dc291e'}} className="font-semibold">Real-time tracking</span> for all shipments
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                      <span className="text-red-600 font-semibold">Insurance coverage</span> available
+                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <span className="text-gray-600 group-hover:text-black transition-colors">
+                      <span style={{color: '#dc291e'}} className="font-semibold">Insurance coverage</span> available
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 bg-primary rounded-full group-hover:bg-red-500 transition-colors"></div>
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-                      <span className="text-red-600 font-semibold">24/7 customer support</span>
+                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <span className="text-gray-600 group-hover:text-black transition-colors">
+                      <span style={{color: '#dc291e'}} className="font-semibold">24/7 customer support</span>
                     </span>
                   </div>
                 </div>
