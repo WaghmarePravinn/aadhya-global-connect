@@ -23,7 +23,7 @@ const Leadership = () => {
       specialties: [
         "Supply Chain Optimization",
         "Market Expansion Strategy",
-        "Partnership Development",
+        "Strategic Partnership Development",
         "Technology Integration",
         "Risk Management",
         "Regulatory Compliance"
@@ -37,10 +37,6 @@ const Leadership = () => {
         "Quality Assurance"
       ],
       achievements: [
-        "Built AGS from startup to 50K+ customer base",
-        "Established partnerships with Delhivery, FedEx, Aramex",
-        "Achieved 99.2% on-time delivery rate",
-        "Expanded operations to 99.8% Pan-India coverage"
       ]
     },
     {
@@ -75,10 +71,6 @@ const Leadership = () => {
         "Performance Analytics"
       ],
       achievements: [
-        "Managed 15K+ vehicle fleet operations",
-        "Reduced transportation costs by 25%",
-        "Implemented advanced tracking systems",
-        "Maintained 99.5% fleet availability"
       ]
     },
     {
@@ -113,10 +105,6 @@ const Leadership = () => {
         "Technical Documentation"
       ],
       achievements: [
-        "Developed real-time tracking platform",
-        "Integrated multiple carrier APIs",
-        "Implemented automated billing system",
-        "Reduced system downtime by 95%"
       ]
     },
     {
@@ -151,10 +139,6 @@ const Leadership = () => {
         "Training & Development"
       ],
       achievements: [
-        "Streamlined operations workflow",
-        "Improved customer satisfaction to 99.8%",
-        "Reduced processing time by 40%",
-        "Implemented quality control systems"
       ]
     },
     {
@@ -189,10 +173,6 @@ const Leadership = () => {
         "Strategic Planning"
       ],
       achievements: [
-        "Secured major enterprise clients",
-        "Increased revenue by 150% in 2 years",
-        "Established 200+ business partnerships",
-        "Expanded market presence in 5 new states"
       ]
     }
   ];
@@ -256,69 +236,20 @@ const Leadership = () => {
                   {leader.description}
                 </p>
 
-                {/* Professional Attributes */}
-                <div className="space-y-4">
-                  {/* Core Qualities */}
-                  <div>
-                    <h4 className="font-semibold text-black mb-2 text-sm">Core Qualities</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {leader.qualities.map((quality, idx) => (
-                        <Badge 
-                          key={idx}
-                          variant="secondary" 
-                          className="text-xs px-2 py-1 bg-blue-50 text-blue-700 hover:bg-blue-100"
-                        >
-                          {quality}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Specialties */}
-                  <div>
-                    <h4 className="font-semibold text-black mb-2 text-sm">Specialties</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {leader.specialties.map((specialty, idx) => (
-                        <Badge 
-                          key={idx}
-                          variant="secondary" 
-                          className="text-xs px-2 py-1 bg-green-50 text-green-700 hover:bg-green-100"
-                        >
-                          {specialty}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Technical Skillsets */}
-                  <div>
-                    <h4 className="font-semibold text-black mb-2 text-sm">Technical Skills</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {leader.skillsets.map((skill, idx) => (
-                        <Badge 
-                          key={idx}
-                          variant="secondary" 
-                          className="text-xs px-2 py-1 bg-purple-50 text-purple-700 hover:bg-purple-100"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Key Achievements */}
-                  <div>
-                    <h4 className="font-semibold text-black mb-2 text-sm">Key Achievements</h4>
-                    <ul className="space-y-1">
+                {/* Key Achievements - Only Section Shown */}
+                {leader.achievements.length > 0 && (
+                  <div className="mt-6">
+                    <h4 className="font-semibold text-black mb-3 text-base">Key Achievements</h4>
+                    <ul className="space-y-2">
                       {leader.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start space-x-2 text-xs text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{backgroundColor: '#dc291e'}}></div>
-                          <span>{achievement}</span>
+                        <li key={idx} className="flex items-start space-x-3 text-sm text-gray-700">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{backgroundColor: '#dc291e'}}></div>
+                          <span className="leading-relaxed">{achievement}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </div>
+                )}
 
                 {/* Hover Effect Border */}
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#dc291e]/20 rounded-lg transition-colors duration-500"></div>
