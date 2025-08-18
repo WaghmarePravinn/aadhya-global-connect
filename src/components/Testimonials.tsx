@@ -153,7 +153,7 @@ const Testimonials = () => {
                 </button>
                 <button 
                   className="border-2 border-primary-foreground text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary-foreground hover:text-primary transition-all duration-300 transform hover:scale-105 active:scale-95"
-                  onClick={() => window.open('https://wa.me/9370257220', '_blank')}
+                  onClick={() => window.open('https://wa.me/919284441622', '_blank')}
                 >
                   Contact Sales
                 </button>

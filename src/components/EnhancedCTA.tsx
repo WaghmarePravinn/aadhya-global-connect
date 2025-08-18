@@ -61,7 +61,7 @@ const EnhancedCTA = () => {
             <Button 
               size="lg" 
               className="border-2 border-white text-white hover:bg-white hover:text-[#dc291e] px-8 py-6 text-lg font-semibold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group bg-white/10 backdrop-blur-sm rounded-lg"
-              onClick={() => window.open('tel:+919370257220')}
+              onClick={() => window.open('tel:+919284441622')}
             >
               <Phone className="mr-3 h-6 w-6 group-hover:animate-pulse" />
               Call Now
@@ -70,7 +70,7 @@ const EnhancedCTA = () => {
             <Button 
               size="lg" 
               className="border-2 border-white text-white hover:bg-white hover:text-[#dc291e] px-8 py-6 text-lg font-semibold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group bg-white/10 backdrop-blur-sm rounded-lg"
-              onClick={() => window.open('https://wa.me/919370257220')}
+              onClick={() => window.open('https://wa.me/919284441622')}
             >
               <MessageCircle className="mr-3 h-6 w-6 group-hover:animate-bounce" />
               WhatsApp

@@ -172,7 +172,7 @@ const RateCalculator = () => {
                     <Button 
                       className="w-full mt-6 text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
                       style={{backgroundColor: '#dc291e'}}
-                      onClick={() => window.open('https://wa.me/9370257220', '_blank')}
+                      onClick={() => window.open('https://wa.me/919284441622', '_blank')}
                     >
                       Book Shipment
                     </Button>

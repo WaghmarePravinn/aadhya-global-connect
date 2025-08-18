@@ -171,7 +171,7 @@ const LiveUpdates = () => {
                 <div className="mt-6 text-center">
                   <button 
                     className="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95"
-                    onClick={() => window.open('https://wa.me/9370257220', '_blank')}
+                    onClick={() => window.open('https://wa.me/919284441622', '_blank')}
                   >
                     View All Updates
                   </button>

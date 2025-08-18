@@ -1,4 +1,3 @@
-
 import { MapPin, Phone, Mail, Globe, Clock, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,7 @@ const Contact = () => {
       title: "Phone",
       details: [
         "+91-9987345010",
-        "+91-9511878900"
+        "+91-9284441622"
       ]
     },
     {
@@ -330,13 +329,13 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-primary/10 p-4 rounded-lg">
                       <div className="text-primary text-sm">
-                        <strong>Need Immediate Assistance?</strong> Call us at +91-9987345010 
+                        <strong>Need Immediate Assistance?</strong> Call us at +91-9284441622 
                         for urgent logistics requirements.
                       </div>
                     </div>
                     <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                       <a 
-                        href="https://wa.me/919987345010?text=Hello,%20I%20need%20help%20with%20logistics%20services"
+                        href="https://wa.me/919284441622?text=Hello,%20I%20need%20help%20with%20logistics%20services"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors text-sm"
