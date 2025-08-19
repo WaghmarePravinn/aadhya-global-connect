@@ -61,7 +61,7 @@ const Navigation = () => {
                 </a>
               ))}
               <Button 
-                className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 onClick={() => setIsTrackingModalOpen(true)}
               >
                 Track Package

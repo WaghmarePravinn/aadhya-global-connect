@@ -51,7 +51,7 @@ const EnhancedCTA = () => {
 
             <Button 
               size="lg" 
-              className="border-2 border-white text-white hover:bg-white hover:text-[#dc291e] px-8 py-6 text-lg font-semibold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group bg-white/10 backdrop-blur-sm rounded-lg"
+              className="border-2 border-white text-white hover:bg-white hover:text-[#dc291e] px-8 py-6 text-lg font-semibold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group bg-white/10 backdrop-blur-sm rounded-lg z-10"
               onClick={() => setIsTrackingOpen(true)}
             >
               <Package className="mr-3 h-6 w-6 group-hover:animate-pulse" />
