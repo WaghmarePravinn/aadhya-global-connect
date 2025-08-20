@@ -145,7 +145,12 @@ const Hero = () => {
                   <Button 
                     size="lg" 
                     className="border-3 border-[#dc291e] text-[#dc291e] hover:bg-[#dc291e] hover:text-white px-10 py-8 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl mx-2"
-                    onClick={() => setIsTrackingOpen(true)}
+                    onClick={() => {
+                      const trackingSection = document.getElementById('track-shipment');
+                      if (trackingSection) {
+                        trackingSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                   >
                     <Package className="mr-3 h-6 w-6 group-hover:animate-bounce" />
                     Track Shipment

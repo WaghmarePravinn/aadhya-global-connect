@@ -15,6 +15,7 @@ import Testimonials from "@/components/Testimonials";
 import LiveUpdates from "@/components/LiveUpdates";
 import BusinessCredibility from "@/components/BusinessCredibility";
 import EnhancedCTA from "@/components/EnhancedCTA";
+import TrackingSection from "@/components/TrackingSection";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <BusinessCredibility />
+      <TrackingSection />
       <RateCalculator />
       <About />
       <Services />
