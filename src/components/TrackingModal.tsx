@@ -29,6 +29,7 @@ const TrackingModal: React.FC<TrackingModalProps> = ({ isOpen, onClose }) => {
         { status: 'Delivered', location: 'Customer Address', date: '2025-01-12', time: 'Pending', completed: false }
       ]
     },
+    
     'AGS005678': {
       status: 'Delivered',
       currentLocation: 'Delivered to Customer',
@@ -67,11 +68,11 @@ const TrackingModal: React.FC<TrackingModalProps> = ({ isOpen, onClose }) => {
             <X className="h-5 w-5" />
           </Button>
         </div>
-        
+       
         <div className="p-6">
           <div className="flex gap-3 mb-6">
             <Input
-              placeholder="Enter tracking number (Try: AGS001234 or AGS005678)"
+              //placeholder="Enter tracking number (Try: AGS001234 or AGS005678)"
               value={trackingNumber}
               onChange={(e) => setTrackingNumber(e.target.value)}
               className="flex-1"
@@ -79,7 +80,7 @@ const TrackingModal: React.FC<TrackingModalProps> = ({ isOpen, onClose }) => {
             <Button onClick={handleTrack} disabled={loading} className="bg-blue-600 hover:bg-blue-700">
               {loading ? 'Tracking...' : 'Track'}
             </Button>
-          </div>
+          </div> 
 
           {loading && (
             <div className="text-center py-8">

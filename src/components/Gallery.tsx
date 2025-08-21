@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import box from "@/assets/gallery/box.jpeg";
+
+// 🖼️ Import your new local images
+import first_image from "@/assets/gallery/first_image.jpeg";
+import second_image from "@/assets/gallery/second_image.jpeg";
+import third_image from "@/assets/gallery/third_image.jpeg";
+import fourth_image from "@/assets/gallery/fourth_image.jpeg";
+import fifth_image from "@/assets/gallery/fifth_image.jpeg";
 
 // Define a type for your gallery items for better type safety
 interface GalleryItem {
@@ -16,48 +22,41 @@ const Gallery = () => {
   const [selectedMedia, setSelectedMedia] = useState<GalleryItem | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Initial gallery items (can be replaced later)
+  // 🖼️ Updated gallery items using local images
   const initialGalleryItems: GalleryItem[] = [
     {
       type: 'image',
-      src: 'box.jpeg',
-      title: 'Modern Logistics Hub',
-      description: 'State-of-the-art warehouse facilities'
+      src: first_image,
+      title: 'First Image Title',
+      description: 'Description for the first image'
     },
     {
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      title: 'Fleet Management',
-      description: 'Our extensive truck fleet ready for delivery'
+      src: second_image,
+      title: 'Second Image Title',
+      description: 'Description for the second image'
     },
     {
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      title: 'International Shipping',
-      description: 'Global cargo operations at the port'
-    },
-    {
-      type: 'video',
-      src: 'https://videos.pexels.com/video-files/6169671/6169671-uhd_2560_1440_30fps.mp4',
-      thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      title: 'Warehouse Operations',
-      description: 'Behind the scenes of our operations'
+      src: third_image,
+      title: 'Third Image Title',
+      description: 'Description for the third image'
     },
     {
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1559526324-c1f275fbfa32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      title: 'Technology Integration',
-      description: 'Advanced tracking and management systems'
+      src: fourth_image,
+      title: 'Fourth Image Title',
+      description: 'Description for the fourth image'
     },
     {
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      title: 'Team Excellence',
-      description: 'Our dedicated logistics professionals'
+      src: fifth_image,
+      title: 'Fifth Image Title',
+      description: 'Description for the fifth image'
     }
   ];
 
-  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(initialGalleryItems); // State for the gallery items
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>(initialGalleryItems);
 
   const openModal = (item: GalleryItem, index: number) => {
     setSelectedMedia(item);
@@ -77,16 +76,14 @@ const Gallery = () => {
     setSelectedMedia(galleryItems[newIndex]);
   };
 
-    // Function to update the gallery items.  You can call this from elsewhere in your application.
   const updateGalleryItems = (newGalleryItems: GalleryItem[]) => {
     setGalleryItems(newGalleryItems);
-    setCurrentIndex(0);  // Reset to the first item when updating
-    setSelectedMedia(newGalleryItems[0] || null); // Select the first image
+    setCurrentIndex(0);
+    setSelectedMedia(newGalleryItems[0] || null);
   };
 
   return (
     <section id="gallery" className="py-20 bg-gray-50">
-      {/* ... rest of your component code using `galleryItems` ... */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Gallery</h2>
@@ -187,4 +184,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
