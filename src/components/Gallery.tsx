@@ -27,32 +27,32 @@ const Gallery = () => {
     {
       type: 'image',
       src: first_image,
-      title: 'First Image Title',
-      description: 'Description for the first image'
+      title: 'Delhivery',
+      description: 'Where it all happens!'
     },
     {
       type: 'image',
       src: second_image,
-      title: 'Second Image Title',
-      description: 'Description for the second image'
+      title: 'Our Transportation',
+      description: 'Reliable trucking services – getting your goods where they need to be, on time'
     },
     {
       type: 'image',
       src: third_image,
-      title: 'Third Image Title',
-      description: 'Description for the third image'
+      title: 'Packaging Excellence',
+      description: 'Quality packing ensures your goods arrive in perfect condition. Trust Delhivery for secure logistics'
     },
     {
       type: 'image',
       src: fourth_image,
       title: 'Fourth Image Title',
-      description: 'Description for the fourth image'
+      description: 'From careful packing to reliable delivery – we handle your shipments with expertise.'
     },
     {
       type: 'image',
       src: fifth_image,
-      title: 'Fifth Image Title',
-      description: 'Description for the fifth image'
+      title: 'Inauguration Ceremony',
+      description: 'Dedicated to providing excellent logistics services across India, as celebrated at our recent inauguration with MLA Bapusaheb Pathare.'
     }
   ];
 

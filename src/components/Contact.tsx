@@ -53,7 +53,7 @@ const Contact = () => {
       icon: MessageCircle,
       title: "WhatsApp",
       details: [
-        "+91-9987345010"
+        "+91-9284441622"
       ]
     }
   ];
