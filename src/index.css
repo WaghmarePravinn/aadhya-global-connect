@@ -471,3 +471,46 @@ button:active {
     text-align: center;
   }
 }
+
+/* --------------------------------------------------------------- */
+/*  Custom Tailwind utilities – continuous marquee/slide effect   */
+/* --------------------------------------------------------------- */
+@layer utilities {
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }   /* slide exactly half the wrapper width (we duplicate the list) */
+  }
+
+  .animate-marquee {
+    animation: marquee linear infinite;
+    animation-duration: 30s;   /* ← adjust speed here – larger = slower */
+  }
+}
+/* --------------------------------------------------------------- */
+/*  Custom Tailwind utilities – marquee + pulse & pause on hover   */
+/* --------------------------------------------------------------- */
+@layer utilities {
+  /* ---------- Marquee (continuous slide) ---------- */
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }   /* slide exactly half the wrapper width (we duplicate the list) */
+  }
+  .animate-marquee {
+    animation: marquee linear infinite;
+    animation-duration: 30s;   /* adjust speed: larger = slower */
+  }
+
+  /* ---------- Pause marquee when hovered ---------- */
+  .group:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  /* ---------- Pulse for modal arrows ---------- */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.15); }
+  }
+  .animate-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+}

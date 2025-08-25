@@ -13,11 +13,11 @@ const Navigation = () => {
     { href: "#home", label: "Home" },
     { href: "#about", label: "About Us" },
     { href: "#track-shipment", label: "Track" },
-            { href: "#services", label: "Services" },
-            { href: "#team", label: "Team" },
-            { href: "#rate-calculator", label: "Rates" },
-            { href: "#gallery", label: "Gallery" },
-            { href: "#contact", label: "Contact" },
+    { href: "#services", label: "Services" },
+    { href: "#team", label: "Team" },
+    { href: "#rate-calculator", label: "Rates" },
+    { href: "#gallery", label: "Gallery" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (
@@ -30,7 +30,7 @@ const Navigation = () => {
             <Link to="/" className="flex items-center space-x-4 hover-lift group">
               <div className="relative">
                 {/* Logo Container with Professional Styling */}
-                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
                   <img 
                     src={agsLogo} 
                     alt="Aadhya Global Services & Logistics - India's Most Trusted Shipping Partner"
@@ -56,13 +56,13 @@ const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="nav-link text-black hover:text-[#dc291e] transition-colors duration-200 font-medium hover-lift"
+                  className="nav-link text-black hover:text-[#dc291e] transition-colors duration-200 font-medium"
                 >
                   {item.label}
                 </a>
               ))}
               <Button 
-                className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 onClick={() => setIsTrackingModalOpen(true)}
               >
                 Track Package
@@ -75,7 +75,7 @@ const Navigation = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="transform hover:scale-105 transition-transform duration-200"
+                className="transition-transform duration-200"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
@@ -90,7 +90,7 @@ const Navigation = () => {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="block px-3 py-2 nav-link text-black hover:text-[#dc291e] transition-colors duration-200 hover-lift"
+                    className="block px-3 py-2 nav-link text-black hover:text-[#dc291e] transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -122,3 +122,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+// This is AI generated code, please refer KPIT AI Policy before using this in your projects

@@ -11,20 +11,26 @@ const RateCalculator = () => {
     fromCity: "",
     toCity: "",
     weight: "",
-    dimensions: "",
+    length: "",
+    width: "",
+    height: "",
     serviceType: ""
   });
+
   const [calculatedRate, setCalculatedRate] = useState<number | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
 
   const calculateRate = () => {
     setIsCalculating(true);
-    // Simulate API call
+
     setTimeout(() => {
       const baseRate = 50;
       const weightMultiplier = parseFloat(formData.weight) * 10;
+      const volume = parseFloat(formData.length) * parseFloat(formData.width) * parseFloat(formData.height);
+      const volumeMultiplier = volume * 0.01; // Example: 1 paisa per cubic cm
       const serviceMultiplier = formData.serviceType === "express" ? 2 : formData.serviceType === "priority" ? 1.5 : 1;
-      const rate = (baseRate + weightMultiplier) * serviceMultiplier;
+      const rate = (baseRate + weightMultiplier + volumeMultiplier) * serviceMultiplier;
+
       setCalculatedRate(rate);
       setIsCalculating(false);
     }, 1500);
@@ -32,7 +38,7 @@ const RateCalculator = () => {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    setCalculatedRate(null);
+    setCalculatedRate(null); // Clear the previous rate when input changes.
   };
 
   return (
@@ -95,13 +101,35 @@ const RateCalculator = () => {
                     onChange={(e) => handleInputChange("weight", e.target.value)}
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="dimensions" className="text-black">Dimensions (L×W×H cm)</Label>
+                  <Label htmlFor="length" className="text-black">Length (cm)</Label>
                   <Input
-                    id="dimensions"
-                    placeholder="e.g., 30×20×15"
-                    value={formData.dimensions}
-                    onChange={(e) => handleInputChange("dimensions", e.target.value)}
+                    id="length"
+                    type="number"
+                    placeholder="Enter length"
+                    value={formData.length}
+                    onChange={(e) => handleInputChange("length", e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="width" className="text-black">Width (cm)</Label>
+                  <Input
+                    id="width"
+                    type="number"
+                    placeholder="Enter width"
+                    value={formData.width}
+                    onChange={(e) => handleInputChange("width", e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="height" className="text-black">Height (cm)</Label>
+                  <Input
+                    id="height"
+                    type="number"
+                    placeholder="Enter height"
+                    value={formData.height}
+                    onChange={(e) => handleInputChange("height", e.target.value)}
                   />
                 </div>
               </div>
@@ -123,9 +151,9 @@ const RateCalculator = () => {
                 </Select>
               </div>
 
-              <Button 
+              <Button
                 onClick={calculateRate}
-                disabled={!formData.fromCity || !formData.toCity || !formData.weight || !formData.serviceType || isCalculating}
+                disabled={!formData.fromCity || !formData.toCity || !formData.weight || !formData.length || !formData.width || !formData.height || !formData.serviceType || isCalculating}
                 className="w-full text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
                 style={{backgroundColor: '#dc291e'}}
               >
@@ -165,11 +193,15 @@ const RateCalculator = () => {
                         <span className="font-medium">{formData.weight} kg</span>
                       </div>
                       <div className="flex justify-between">
+                        <span className="text-gray-600">Dimensions:</span>
+                        <span className="font-medium">{formData.length} x {formData.width} x {formData.height} cm</span>
+                      </div>
+                      <div className="flex justify-between">
                         <span className="text-gray-600">Service:</span>
                         <span className="font-medium capitalize">{formData.serviceType}</span>
                       </div>
                     </div>
-                    <Button 
+                    <Button
                       className="w-full mt-6 text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
                       style={{backgroundColor: '#dc291e'}}
                       onClick={() => window.open('https://wa.me/919284441622', '_blank')}
