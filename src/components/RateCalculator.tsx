@@ -1,166 +1,319 @@
+/*  RateCalculator.tsx  */
 import { useState } from "react";
-import { Calculator, Package, MapPin, Truck } from "lucide-react";
+import {
+  Calculator,
+  Package,
+  MapPin,
+  Truck,
+  Globe,
+  ArrowRight,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
+/* --------------------------------------------------------------- */
+/*  1️⃣  Service‑type definitions – different per region           */
+/* --------------------------------------------------------------- */
+type ServiceOption = {
+  value: string;
+  label: string;
+  multiplier: number; // applied on the base‑rate + weight + volume
+};
+
+/* Domestic services */
+const domesticServices: ServiceOption[] = [
+  { value: "standard", label: "Standard (3‑5 days)", multiplier: 1 },
+  { value: "priority", label: "Priority (2‑3 days)", multiplier: 1.4 },
+  { value: "express", label: "Express (1‑2 days)", multiplier: 2 },
+];
+
+/* International services */
+const internationalServices: ServiceOption[] = [
+  { value: "air", label: "Air Freight", multiplier: 2.5 },
+  { value: "sea", label: "Sea Freight", multiplier: 1.6 },
+  { value: "express", label: "Express (Air + Fast)", multiplier: 3 },
+];
+
+/* --------------------------------------------------------------- */
+/*  2️⃣  Main component                                            */
+/* --------------------------------------------------------------- */
 const RateCalculator = () => {
-  const [formData, setFormData] = useState({
+  /* ---------- UI state ---------- */
+  const [region, setRegion] = useState<"domestic" | "international">(
+    "domestic"
+  );
+  const [service, setService] = useState("");
+  const [showDimensions, setShowDimensions] = useState(false);
+  const [form, setForm] = useState({
     fromCity: "",
     toCity: "",
     weight: "",
     length: "",
     width: "",
     height: "",
-    serviceType: ""
   });
 
-  const [calculatedRate, setCalculatedRate] = useState<number | null>(null);
-  const [isCalculating, setIsCalculating] = useState(false);
+  const [rate, setRate] = useState<number | null>(null);
+  const [calculating, setCalculating] = useState(false);
 
-  const calculateRate = () => {
-    setIsCalculating(true);
+  /* ---------- helpers ---------- */
+  const services = region === "domestic" ? domesticServices : internationalServices;
 
+  const handleChange = (field: keyof typeof form, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setRate(null); // clear old result when anything changes
+  };
+
+  const calculate = () => {
+    setCalculating(true);
     setTimeout(() => {
-      const baseRate = 50;
-      const weightMultiplier = parseFloat(formData.weight) * 10;
-      const volume = parseFloat(formData.length) * parseFloat(formData.width) * parseFloat(formData.height);
-      const volumeMultiplier = volume * 0.01; // Example: 1 paisa per cubic cm
-      const serviceMultiplier = formData.serviceType === "express" ? 2 : formData.serviceType === "priority" ? 1.5 : 1;
-      const rate = (baseRate + weightMultiplier + volumeMultiplier) * serviceMultiplier;
+      /* ---- Base rates ---- */
+      const baseRate = region === "domestic" ? 50 : 80; // international start higher
+      const weightKg = parseFloat(form.weight) || 0;
+      const weightCost = weightKg * 12; // ₹12 per kg (example)
 
-      setCalculatedRate(rate);
-      setIsCalculating(false);
-    }, 1500);
+      /* ---- Volume cost (optional) ---- */
+      let volumeCost = 0;
+      if (showDimensions) {
+        const l = parseFloat(form.length) || 0;
+        const w = parseFloat(form.width) || 0;
+        const h = parseFloat(form.height) || 0;
+        const volume = l * w * h; // cm³
+        volumeCost = volume * 0.008; // ₹0.008 per cm³  (example)
+      }
+
+      /* ---- Service multiplier ---- */
+      const svc = services.find((s) => s.value === service);
+      const multiplier = svc ? svc.multiplier : 1;
+
+      const raw = (baseRate + weightCost + volumeCost) * multiplier;
+      setRate(raw);
+      setCalculating(false);
+    }, 1200); // simulate async calc
   };
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    setCalculatedRate(null); // Clear the previous rate when input changes.
-  };
-
+  /* --------------------------------------------------------------- */
+  /*  3️⃣  Render UI                                                  */
+  /* --------------------------------------------------------------- */
   return (
-    <section id="rate-calculator" className="py-20 bg-gradient-to-br from-primary/5 to-background">
+    <section
+      id="rate-calculator"
+      className="py-20 bg-gradient-to-br from-primary/5 to-background relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-6">Calculate Shipping Rates</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get instant quotes for your shipments with our advanced rate calculator.
+        {/* ===== Title ===== */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-black mb-4">
+            Shipping Rate Calculator
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Choose the shipment type, fill in the details and get an instant quote.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* ===== Main Grid – Form & Result ===== */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* ---------- LEFT – FORM ---------- */}
           <Card className="shadow-xl border-0">
-            <CardHeader className="text-white rounded-t-lg" style={{background: 'linear-gradient(to right, #dc291e, #dc291e)'}}>
-              <CardTitle className="flex items-center space-x-3">
-                <Calculator className="h-6 w-6" />
+            <CardHeader
+              className="text-white rounded-t-lg"
+              style={{ backgroundColor: "#dc291e" }}
+            >
+              <CardTitle className="flex items-center space-x-2">
+                <Calculator className="h-5 w-5" />
                 <span>Rate Calculator</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="p-8 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="fromCity" className="flex items-center space-x-2 text-black">
-                    <MapPin className="h-4 w-4" style={{color: '#dc291e'}} />
-                    <span>From City</span>
-                  </Label>
-                  <Input
-                    id="fromCity"
-                    placeholder="Enter pickup city"
-                    value={formData.fromCity}
-                    onChange={(e) => handleInputChange("fromCity", e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="toCity" className="flex items-center space-x-2 text-black">
-                    <MapPin className="h-4 w-4" style={{color: '#dc291e'}} />
-                    <span>To City</span>
-                  </Label>
-                  <Input
-                    id="toCity"
-                    placeholder="Enter delivery city"
-                    value={formData.toCity}
-                    onChange={(e) => handleInputChange("toCity", e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="weight" className="flex items-center space-x-2 text-black">
-                    <Package className="h-4 w-4" style={{color: '#dc291e'}} />
-                    <span>Weight (kg)</span>
-                  </Label>
-                  <Input
-                    id="weight"
-                    type="number"
-                    placeholder="Enter weight"
-                    value={formData.weight}
-                    onChange={(e) => handleInputChange("weight", e.target.value)}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="length" className="text-black">Length (cm)</Label>
-                  <Input
-                    id="length"
-                    type="number"
-                    placeholder="Enter length"
-                    value={formData.length}
-                    onChange={(e) => handleInputChange("length", e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="width" className="text-black">Width (cm)</Label>
-                  <Input
-                    id="width"
-                    type="number"
-                    placeholder="Enter width"
-                    value={formData.width}
-                    onChange={(e) => handleInputChange("width", e.target.value)}
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="height" className="text-black">Height (cm)</Label>
-                  <Input
-                    id="height"
-                    type="number"
-                    placeholder="Enter height"
-                    value={formData.height}
-                    onChange={(e) => handleInputChange("height", e.target.value)}
-                  />
-                </div>
-              </div>
-
+              {/* ---- Region selector (Domestic / International) ---- */}
               <div className="space-y-2">
-                <Label htmlFor="serviceType" className="flex items-center space-x-2 text-black">
-                  <Truck className="h-4 w-4" style={{color: '#dc291e'}} />
-                  <span>Service Type</span>
+                <Label className="font-medium text-black">Shipment Region</Label>
+                <div className="flex gap-6">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="region"
+                      value="domestic"
+                      checked={region === "domestic"}
+                      onChange={() => {
+                        setRegion("domestic");
+                        setService("");
+                      }}
+                      className="form-radio h-4 w-4 text-[#dc291e]"
+                    />
+                    <span className="text-black">Domestic</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="region"
+                      value="international"
+                      checked={region === "international"}
+                      onChange={() => {
+                        setRegion("international");
+                        setService("");
+                      }}
+                      className="form-radio h-4 w-4 text-[#dc291e]"
+                    />
+                    <span className="text-black">International</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* ---- Service type (changes with region) ---- */}
+              <div className="space-y-2">
+                <Label htmlFor="service" className="font-medium text-black">
+                  Service Type
                 </Label>
-                <Select onValueChange={(value) => handleInputChange("serviceType", value)}>
-                  <SelectTrigger>
+                <Select onValueChange={setService} value={service}>
+                  <SelectTrigger id="service">
                     <SelectValue placeholder="Select service type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="standard">Standard Delivery (3-5 days)</SelectItem>
-                    <SelectItem value="priority">Priority Delivery (2-3 days)</SelectItem>
-                    <SelectItem value="express">Express Delivery (1-2 days)</SelectItem>
+                    {services.map((opt) => (
+                      <SelectItem key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
 
-              <Button
-                onClick={calculateRate}
-                disabled={!formData.fromCity || !formData.toCity || !formData.weight || !formData.length || !formData.width || !formData.height || !formData.serviceType || isCalculating}
-                className="w-full text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
-                style={{backgroundColor: '#dc291e'}}
+              {/* ---- From / To city ---- */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="fromCity"
+                    className="flex items-center gap-2 text-black"
+                  >
+                    <MapPin className="h-4 w-4" style={{ color: "#dc291e" }} />
+                    From City
+                  </Label>
+                  <Input
+                    id="fromCity"
+                    placeholder="Pickup city"
+                    value={form.fromCity}
+                    onChange={(e) => handleChange("fromCity", e.target.value)}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="toCity"
+                    className="flex items-center gap-2 text-black"
+                  >
+                    <MapPin className="h-4 w-4" style={{ color: "#dc291e" }} />
+                    To City
+                  </Label>
+                  <Input
+                    id="toCity"
+                    placeholder="Destination city"
+                    value={form.toCity}
+                    onChange={(e) => handleChange("toCity", e.target.value)}
+                  />
+                </div>
+              </div>
+
+              {/* ---- Weight ---- */}
+              <div className="space-y-2">
+                <Label
+                  htmlFor="weight"
+                  className="flex items-center gap-2 text-black"
+                >
+                  <Package className="h-4 w-4" style={{ color: "#dc291e" }} />
+                  Weight (kg)
+                </Label>
+                <Input
+                  id="weight"
+                  type="number"
+                  placeholder="e.g. 12"
+                  value={form.weight}
+                  onChange={(e) => handleChange("weight", e.target.value)}
+                />
+              </div>
+
+              {/* ---- Optional dimensions (toggle) ---- */}
+              <button
+                type="button"
+                onClick={() => setShowDimensions(!showDimensions)}
+                className="text-sm text-gray-600 hover:text-[#dc291e] focus:outline-none"
               >
-                {isCalculating ? (
-                  <div className="flex items-center space-x-2">
+                {showDimensions ? "Hide" : "Show"} Advanced Options (Dimensions)
+              </button>
+
+              {showDimensions && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="length" className="text-black">
+                      Length (cm)
+                    </Label>
+                    <Input
+                      id="length"
+                      type="number"
+                      placeholder="e.g. 40"
+                      value={form.length}
+                      onChange={(e) => handleChange("length", e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="width" className="text-black">
+                      Width (cm)
+                    </Label>
+                    <Input
+                      id="width"
+                      type="number"
+                      placeholder="e.g. 30"
+                      value={form.width}
+                      onChange={(e) => handleChange("width", e.target.value)}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="height" className="text-black">
+                      Height (cm)
+                    </Label>
+                    <Input
+                      id="height"
+                      type="number"
+                      placeholder="e.g. 20"
+                      value={form.height}
+                      onChange={(e) => handleChange("height", e.target.value)}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* ---- Calculate button ---- */}
+              <Button
+                onClick={calculate}
+                disabled={
+                  !form.fromCity ||
+                  !form.toCity ||
+                  !form.weight ||
+                  !service ||
+                  calculating
+                }
+                className="w-full text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
+                style={{ backgroundColor: "#dc291e" }}
+              >
+                {calculating ? (
+                  <div className="flex items-center gap-2">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                    <span>Calculating...</span>
+                    <span>Calculating…</span>
                   </div>
                 ) : (
                   "Calculate Rate"
@@ -169,76 +322,114 @@ const RateCalculator = () => {
             </CardContent>
           </Card>
 
+          {/* ---------- RIGHT – RESULT CARD ---------- */}
           <div className="space-y-8">
-            {calculatedRate && (
+            {rate !== null && (
               <Card className="shadow-xl border-0 bg-gradient-to-br from-red-50 to-red-100">
-                <CardHeader className="text-white rounded-t-lg" style={{background: 'linear-gradient(to right, #dc291e, #dc291e)'}}>
-                  <CardTitle>Calculated Rate</CardTitle>
+                <CardHeader
+                  className="text-white rounded-t-lg"
+                  style={{ background: "linear-gradient(to right, #dc291e, #dc291e)" }}
+                >
+                  <CardTitle>Estimated Shipping Cost</CardTitle>
                 </CardHeader>
                 <CardContent className="p-8">
                   <div className="text-center">
-                    <div className="text-4xl font-bold mb-4" style={{color: '#dc291e'}}>
-                      ₹{calculatedRate.toFixed(2)}
+                    <div
+                      className="text-4xl font-bold mb-4"
+                      style={{ color: "#dc291e" }}
+                    >
+                      ₹{rate.toFixed(2)}
                     </div>
                     <p className="text-gray-600 mb-6">
-                      Estimated cost for your shipment
+                      Approximate cost for the entered shipment details.
                     </p>
+
+                    {/* ---- Details ---- */}
                     <div className="space-y-3 text-left">
                       <div className="flex justify-between">
-                        <span className="text-gray-600">Route:</span>
-                        <span className="font-medium">{formData.fromCity} → {formData.toCity}</span>
+                        <span className="text-gray-600">From:</span>
+                        <span className="font-medium">{form.fromCity}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">To:</span>
+                        <span className="font-medium">{form.toCity}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-600">Weight:</span>
-                        <span className="font-medium">{formData.weight} kg</span>
+                        <span className="font-medium">{form.weight} kg</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">Dimensions:</span>
-                        <span className="font-medium">{formData.length} x {formData.width} x {formData.height} cm</span>
-                      </div>
+
+                      {showDimensions && (
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Dimensions:</span>
+                          <span className="font-medium">
+                            {form.length} × {form.width} × {form.height} cm
+                          </span>
+                        </div>
+                      )}
+
                       <div className="flex justify-between">
                         <span className="text-gray-600">Service:</span>
-                        <span className="font-medium capitalize">{formData.serviceType}</span>
+                        <span className="font-medium">
+                          {services.find((s) => s.value === service)?.label}
+                        </span>
                       </div>
                     </div>
+
+                    {/* ---- CTA button ---- */}
                     <Button
                       className="w-full mt-6 text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
-                      style={{backgroundColor: '#dc291e'}}
-                      onClick={() => window.open('https://wa.me/919284441622', '_blank')}
+                      style={{ backgroundColor: "#dc291e" }}
+                      onClick={() =>
+                        window.open("https://wa.me/919284441622", "_blank")
+                      }
                     >
-                      Book Shipment
+                      Book via WhatsApp
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </div>
                 </CardContent>
               </Card>
             )}
 
+            {/* ---- Optional “Why choose us” card (kept unchanged) ---- */}
             <Card className="shadow-lg">
               <CardContent className="p-6">
                 <h3 className="font-bold text-black mb-4">Why Choose Our Service?</h3>
-                  <div className="space-y-3">
+                <div className="space-y-3">
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#dc291e" }} />
                     <span className="text-gray-600 group-hover:text-black transition-colors">
-                      <span style={{color: '#dc291e'}} className="font-semibold">Transparent pricing</span> with no hidden fees
+                      <span style={{ color: "#dc291e" }} className="font-semibold">
+                        Transparent pricing
+                      </span>{" "}
+                      – no hidden fees
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#dc291e" }} />
                     <span className="text-gray-600 group-hover:text-black transition-colors">
-                      <span style={{color: '#dc291e'}} className="font-semibold">Real-time tracking</span> for all shipments
+                      <span style={{ color: "#dc291e" }} className="font-semibold">
+                        Real‑time tracking
+                      </span>{" "}
+                      for all shipments
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#dc291e" }} />
                     <span className="text-gray-600 group-hover:text-black transition-colors">
-                      <span style={{color: '#dc291e'}} className="font-semibold">Insurance coverage</span> available
+                      <span style={{ color: "#dc291e" }} className="font-semibold">
+                        Insurance coverage
+                      </span>{" "}
+                      available
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-2 h-2 rounded-full transition-colors" style={{backgroundColor: '#dc291e'}}></div>
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#dc291e" }} />
                     <span className="text-gray-600 group-hover:text-black transition-colors">
-                      <span style={{color: '#dc291e'}} className="font-semibold">24/7 customer support</span>
+                      <span style={{ color: "#dc291e" }} className="font-semibold">
+                        24/7 support
+                      </span>
                     </span>
                   </div>
                 </div>
