@@ -2,11 +2,18 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Truck, Package, Globe, Clock, Calculator, Zap, Shield, Star, TrendingUp, Phone, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import TrackingModal from "./TrackingModal";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { MapPin } from "lucide-react";
 
 const Hero = () => {
   const [isTrackingOpen, setIsTrackingOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [shipmentType, setShipmentType] = useState<"domestic" | "international">("domestic");
+  const [pickupLocation, setPickupLocation] = useState("");
+  const [deliveryLocation, setDeliveryLocation] = useState("");
 
   const features = [
     { icon: Truck, text: "Official Partners: Delhivery, FedEx, Aramex, DHL" },
@@ -37,6 +44,27 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const handleGetQuote = () => {
+    if (!pickupLocation.trim() || !deliveryLocation.trim()) {
+      alert("Please enter both pickup and delivery locations");
+      return;
+    }
+
+    const shipmentTypeText = shipmentType === "domestic" ? "Domestic" : "International";
+    const message = `Hello AGS Logistics! 
+
+I need a shipping quote for:
+📦 Shipment Type: ${shipmentTypeText}
+📍 Pickup Location: ${pickupLocation}
+📍 Delivery Location: ${deliveryLocation}
+
+Could you please provide me with the shipping rates and delivery timeline for this route?
+
+Thank you!`;
+
+    const whatsappUrl = `https://wa.me/919284441622?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
   return (
     <>
       <section id="home" className="pt-20 relative min-h-screen flex items-center overflow-hidden bg-white">
@@ -187,9 +215,9 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Enhanced Right Content with Red Accents */}
+            {/* Enhanced Right Content - Shipping Quote Form */}
             <div className="space-y-8 animate-slide-in-right">
-              {/* Hero Stats Card with Red Theme */}
+              {/* Quick Shipping Quote Card */}
               <div className="bg-white/95 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border-2 border-[#dc291e]/20 transform hover:scale-105 transition-all duration-500 hover:shadow-3xl relative overflow-hidden">
                 {/* Red Accent Corner */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-[#dc291e] rounded-bl-full opacity-10"></div>
@@ -197,39 +225,133 @@ const Hero = () => {
                 <div className="relative z-10">
                   <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-20 h-20 bg-[#dc291e]/10 rounded-full mb-4">
-                      <TrendingUp className="w-10 h-10 text-[#dc291e]" />
+                      <Package className="w-10 h-10 text-[#dc291e]" />
                     </div>
-                    <h3 className="text-3xl font-bold text-black mb-2">Live Performance</h3>
-                    <p className="text-gray-600">Real-time logistics metrics</p>
+                    <h3 className="text-3xl font-bold text-black mb-2">Ship Personal Courier</h3>
+                    <p className="text-gray-600">Get instant shipping quotes</p>
                   </div>
 
-                  {/* Enhanced Stats Grid */}
-                  <div className="grid grid-cols-2 gap-6">
-                    {stats.map((stat, index) => (
-                      <div 
-                        key={index}
-                        className="text-center p-6 bg-gradient-to-br from-[#dc291e]/5 to-[#dc291e]/10 rounded-2xl border border-[#dc291e]/20 transform transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer group"
-                        style={{animationDelay: `${1.6 + index * 0.2}s`}}
-                      >
-                        <stat.icon className="w-10 h-10 mx-auto mb-3 text-[#dc291e] group-hover:animate-bounce transition-colors" />
-                        <div className="text-4xl font-black text-[#dc291e] mb-2">
-                          {stat.value}
+                  {/* Shipping Quote Form */}
+                  <div className="space-y-6">
+                    {/* Shipment Type Tabs */}
+                    <Tabs value={shipmentType} onValueChange={(value) => setShipmentType(value as "domestic" | "international")}>
+                      <TabsList className="grid w-full grid-cols-2 mb-6">
+                        <TabsTrigger value="domestic" className="flex items-center space-x-2">
+                          <Truck className="h-4 w-4" />
+                          <span>Domestic</span>
+                        </TabsTrigger>
+                        <TabsTrigger value="international" className="flex items-center space-x-2">
+                          <Globe className="h-4 w-4" />
+                          <span>International</span>
+                        </TabsTrigger>
+                      </TabsList>
+
+                      <TabsContent value="domestic" className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="pickup-domestic" className="flex items-center space-x-2 text-black font-medium">
+                            <MapPin className="h-4 w-4 text-[#dc291e]" />
+                            <span>Enter pickup pin code</span>
+                          </Label>
+                          <Input
+                            id="pickup-domestic"
+                            placeholder="e.g., 411047"
+                            value={pickupLocation}
+                            onChange={(e) => setPickupLocation(e.target.value)}
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                          />
                         </div>
-                        <div className="text-sm font-semibold text-black">
-                          {stat.label}
+
+                        <div className="flex justify-center py-2">
+                          <div className="flex flex-col items-center space-y-1">
+                            <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
+                            <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
+                            <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
+                          </div>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="delivery-domestic" className="flex items-center space-x-2 text-black font-medium">
+                            <MapPin className="h-4 w-4 text-[#dc291e]" />
+                            <span>Enter delivery pin code</span>
+                          </Label>
+                          <Input
+                            id="delivery-domestic"
+                            placeholder="e.g., 110001"
+                            value={deliveryLocation}
+                            onChange={(e) => setDeliveryLocation(e.target.value)}
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                          />
+                        </div>
+                      </TabsContent>
+
+                      <TabsContent value="international" className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="pickup-international" className="flex items-center space-x-2 text-black font-medium">
+                            <MapPin className="h-4 w-4 text-[#dc291e]" />
+                            <span>Enter pickup location</span>
+                          </Label>
+                          <Input
+                            id="pickup-international"
+                            placeholder="e.g., Mumbai, India"
+                            value={pickupLocation}
+                            onChange={(e) => setPickupLocation(e.target.value)}
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                          />
+                        </div>
+
+                        <div className="flex justify-center py-2">
+                          <div className="flex flex-col items-center space-y-1">
+                            <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
+                            <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
+                            <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
+                          </div>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="delivery-international" className="flex items-center space-x-2 text-black font-medium">
+                            <MapPin className="h-4 w-4 text-[#dc291e]" />
+                            <span>Enter delivery location</span>
+                          </Label>
+                          <Input
+                            id="delivery-international"
+                            placeholder="e.g., New York, USA"
+                            value={deliveryLocation}
+                            onChange={(e) => setDeliveryLocation(e.target.value)}
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                          />
+                        </div>
+                      </TabsContent>
+                    </Tabs>
+
+                    {/* Get Quote Button */}
+                    <Button
+                      onClick={handleGetQuote}
+                      disabled={!pickupLocation.trim() || !deliveryLocation.trim()}
+                      className="w-full bg-[#dc291e] hover:bg-[#b8241a] text-white py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg shadow-lg hover:shadow-xl"
+                    >
+                      <MessageCircle className="mr-3 h-5 w-5" />
+                      Get OTP & Ship Now
+                    </Button>
+
+                    {/* Additional Info */}
+                    <div className="text-center">
+                      <p className="text-xs text-gray-500 mb-3">
+                        Get instant quotes via WhatsApp
+                      </p>
+                      
+                      <div className="grid grid-cols-3 gap-2">
+                        <div className="p-2 bg-green-50 rounded border border-green-200">
+                          <div className="text-green-700 font-semibold text-xs">✓ Instant</div>
+                        </div>
+                        <div className="p-2 bg-blue-50 rounded border border-blue-200">
+                          <div className="text-blue-700 font-semibold text-xs">✓ Best Rates</div>
+                        </div>
+                        <div className="p-2 bg-purple-50 rounded border border-purple-200">
+                          <div className="text-purple-700 font-semibold text-xs">✓ Secure</div>
                         </div>
                       </div>
-                    ))}
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Live Activity Indicator with Red Theme */}
-              <div className="bg-gradient-to-r from-[#dc291e]/10 to-[#dc291e]/5 p-6 rounded-2xl border-2 border-[#dc291e]/20 animate-fade-in" style={{animationDelay: '2s'}}>
-                <div className="flex items-center justify-center space-x-3">
-                  <div className="w-4 h-4 bg-[#dc291e] rounded-full animate-pulse"></div>
-                  <span className="text-lg font-bold text-black">1,247 deliveries completed today</span>
-                  <TrendingUp className="w-6 h-6 text-[#dc291e] animate-bounce" />
                 </div>
               </div>
 
