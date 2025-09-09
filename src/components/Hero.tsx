@@ -112,16 +112,16 @@ Thank you!`;
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Enhanced Left Content with Red Theme */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div className="space-y-6 animate-fade-in">
                 <div className="inline-flex items-center px-6 py-3 bg-[#dc291e] rounded-full text-white font-semibold animate-bounce-in shadow-lg">
                   <Star className="w-5 h-5 mr-2" />
                   India's #1 Trusted Logistics Partner
                 </div>
                 
-                <h1 className="text-6xl lg:text-8xl font-black text-black leading-tight">
+                <h1 className="text-5xl lg:text-6xl font-black text-black leading-tight">
                   <span className="inline-block animate-slide-up" style={{animationDelay: '0.2s'}}>Ship</span>{' '}
                   <span className="inline-block animate-slide-up" style={{color: '#dc291e', animationDelay: '0.4s'}}>Faster</span>
                   <br />
@@ -129,14 +129,14 @@ Thank you!`;
                   <span className="inline-block animate-slide-up" style={{color: '#dc291e', animationDelay: '0.8s'}}>Smarter</span>
                 </h1>
                 
-                <p className="text-2xl text-gray-700 leading-relaxed animate-slide-up font-medium" style={{animationDelay: '1s'}}>
+                <p className="text-xl text-gray-700 leading-relaxed animate-slide-up font-medium" style={{animationDelay: '1s'}}>
                   Transform your business with India's most reliable logistics network. 
                   <span style={{color: '#dc291e'}} className="font-bold"> 99.2% on-time delivery</span> across 
                   <span style={{color: '#dc291e'}} className="font-bold"> 50,000+ locations</span>.
                 </p>
                 
                 {/* Trust Indicators */}
-                <div className="flex flex-wrap items-center gap-6 animate-slide-up" style={{animationDelay: '1.1s'}}>
+                <div className="flex flex-wrap items-center gap-4 animate-slide-up" style={{animationDelay: '1.1s'}}>
                   <div className="flex items-center space-x-2">
                     <CheckCircle className="w-6 h-6" style={{color: '#dc291e'}} />
                     <span className="text-black font-semibold">ISO 9001:2015 Certified</span>
@@ -153,11 +153,11 @@ Thank you!`;
               </div>
 
               {/* High-Converting CTA Section */}
-              <div className="space-y-6 animate-slide-up" style={{animationDelay: '1.4s'}}>
+              <div className="space-y-4 animate-slide-up" style={{animationDelay: '1.4s'}}>
                 <div className="flex flex-wrap gap-4">
                   <Button 
                     size="lg" 
-                    className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-12 py-8 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 rounded-xl mx-2"
+                    className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-8 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 rounded-xl"
                     onClick={() => {
                       const rateCalculator = document.getElementById('rate-calculator');
                       if (rateCalculator) {
@@ -172,7 +172,7 @@ Thank you!`;
                   
                   <Button 
                     size="lg" 
-                    className="border-3 border-[#dc291e] text-[#dc291e] hover:bg-[#dc291e] hover:text-white px-10 py-8 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl mx-2"
+                    className="border-3 border-[#dc291e] text-[#dc291e] hover:bg-[#dc291e] hover:text-white px-6 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl"
                     onClick={() => {
                       const trackingSection = document.getElementById('track-shipment');
                       if (trackingSection) {
@@ -186,7 +186,7 @@ Thank you!`;
                 </div>
                 
                 {/* Urgency & Social Proof */}
-                <div className="bg-[#dc291e]/5 border-l-4 border-[#dc291e] p-4 rounded-r-lg">
+                <div className="bg-[#dc291e]/5 border-l-4 border-[#dc291e] p-3 rounded-r-lg">
                   <p className="text-black font-semibold">
                     🔥 <span style={{color: '#dc291e'}}>Limited Time:</span> Get 20% off your first shipment! 
                     <span style={{color: '#dc291e'}} className="font-bold">Join 50,000+ satisfied customers</span>
@@ -194,10 +194,10 @@ Thank you!`;
                 </div>
                 
                 {/* Contact Options */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-3">
                   <a 
                     href="tel:+919284441622"
-                    className="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 font-semibold"
+                    className="inline-flex items-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 font-semibold text-sm"
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     Call Now: +91-9284441622
@@ -206,7 +206,7 @@ Thank you!`;
                     href="https://wa.me/919284441622"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 font-semibold"
+                    className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 font-semibold text-sm"
                   >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     WhatsApp Us
@@ -216,26 +216,26 @@ Thank you!`;
             </div>
 
             {/* Enhanced Right Content - Shipping Quote Form */}
-            <div className="space-y-8 animate-slide-in-right">
+            <div className="animate-slide-in-right">
               {/* Quick Shipping Quote Card */}
-              <div className="bg-white/95 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border-2 border-[#dc291e]/20 transform hover:scale-105 transition-all duration-500 hover:shadow-3xl relative overflow-hidden">
+              <div className="bg-white/95 backdrop-blur-lg p-6 rounded-2xl shadow-2xl border-2 border-[#dc291e]/20 transform hover:scale-102 transition-all duration-500 hover:shadow-3xl relative overflow-hidden max-w-md mx-auto">
                 {/* Red Accent Corner */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-[#dc291e] rounded-bl-full opacity-10"></div>
+                <div className="absolute top-0 right-0 w-16 h-16 bg-[#dc291e] rounded-bl-full opacity-10"></div>
                 
                 <div className="relative z-10">
-                  <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-[#dc291e]/10 rounded-full mb-4">
-                      <Package className="w-10 h-10 text-[#dc291e]" />
+                  <div className="text-center mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#dc291e]/10 rounded-full mb-3">
+                      <Package className="w-8 h-8 text-[#dc291e]" />
                     </div>
-                    <h3 className="text-3xl font-bold text-black mb-2">Ship Personal Courier</h3>
-                    <p className="text-gray-600">Get instant shipping quotes</p>
+                    <h3 className="text-2xl font-bold text-black mb-1">Ship Personal Courier</h3>
+                    <p className="text-gray-600 text-sm">Get instant shipping quotes</p>
                   </div>
 
                   {/* Shipping Quote Form */}
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {/* Shipment Type Tabs */}
                     <Tabs value={shipmentType} onValueChange={(value) => setShipmentType(value as "domestic" | "international")}>
-                      <TabsList className="grid w-full grid-cols-2 mb-6">
+                      <TabsList className="grid w-full grid-cols-2 mb-4">
                         <TabsTrigger value="domestic" className="flex items-center space-x-2">
                           <Truck className="h-4 w-4" />
                           <span>Domestic</span>
@@ -248,7 +248,7 @@ Thank you!`;
 
                       <TabsContent value="domestic" className="space-y-4">
                         <div className="space-y-2">
-                          <Label htmlFor="pickup-domestic" className="flex items-center space-x-2 text-black font-medium">
+                          <Label htmlFor="pickup-domestic" className="flex items-center space-x-2 text-black font-medium text-sm">
                             <MapPin className="h-4 w-4 text-[#dc291e]" />
                             <span>Enter pickup pin code</span>
                           </Label>
@@ -257,11 +257,11 @@ Thank you!`;
                             placeholder="e.g., 411047"
                             value={pickupLocation}
                             onChange={(e) => setPickupLocation(e.target.value)}
-                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300 h-12"
                           />
                         </div>
 
-                        <div className="flex justify-center py-2">
+                        <div className="flex justify-center py-1">
                           <div className="flex flex-col items-center space-y-1">
                             <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
                             <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
@@ -270,7 +270,7 @@ Thank you!`;
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="delivery-domestic" className="flex items-center space-x-2 text-black font-medium">
+                          <Label htmlFor="delivery-domestic" className="flex items-center space-x-2 text-black font-medium text-sm">
                             <MapPin className="h-4 w-4 text-[#dc291e]" />
                             <span>Enter delivery pin code</span>
                           </Label>
@@ -279,14 +279,14 @@ Thank you!`;
                             placeholder="e.g., 110001"
                             value={deliveryLocation}
                             onChange={(e) => setDeliveryLocation(e.target.value)}
-                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300 h-12"
                           />
                         </div>
                       </TabsContent>
 
                       <TabsContent value="international" className="space-y-4">
                         <div className="space-y-2">
-                          <Label htmlFor="pickup-international" className="flex items-center space-x-2 text-black font-medium">
+                          <Label htmlFor="pickup-international" className="flex items-center space-x-2 text-black font-medium text-sm">
                             <MapPin className="h-4 w-4 text-[#dc291e]" />
                             <span>Enter pickup location</span>
                           </Label>
@@ -295,11 +295,11 @@ Thank you!`;
                             placeholder="e.g., Mumbai, India"
                             value={pickupLocation}
                             onChange={(e) => setPickupLocation(e.target.value)}
-                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300 h-12"
                           />
                         </div>
 
-                        <div className="flex justify-center py-2">
+                        <div className="flex justify-center py-1">
                           <div className="flex flex-col items-center space-y-1">
                             <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
                             <div className="w-2 h-2 bg-[#dc291e] rounded-full"></div>
@@ -308,7 +308,7 @@ Thank you!`;
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="delivery-international" className="flex items-center space-x-2 text-black font-medium">
+                          <Label htmlFor="delivery-international" className="flex items-center space-x-2 text-black font-medium text-sm">
                             <MapPin className="h-4 w-4 text-[#dc291e]" />
                             <span>Enter delivery location</span>
                           </Label>
@@ -317,7 +317,7 @@ Thank you!`;
                             placeholder="e.g., New York, USA"
                             value={deliveryLocation}
                             onChange={(e) => setDeliveryLocation(e.target.value)}
-                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300"
+                            className="border-2 border-gray-200 focus:border-[#dc291e] transition-all duration-300 h-12"
                           />
                         </div>
                       </TabsContent>
@@ -327,7 +327,7 @@ Thank you!`;
                     <Button
                       onClick={handleGetQuote}
                       disabled={!pickupLocation.trim() || !deliveryLocation.trim()}
-                      className="w-full bg-[#dc291e] hover:bg-[#b8241a] text-white py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg shadow-lg hover:shadow-xl"
+                      className="w-full bg-[#dc291e] hover:bg-[#b8241a] text-white py-3 text-base font-bold transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg shadow-lg hover:shadow-xl"
                     >
                       <MessageCircle className="mr-3 h-5 w-5" />
                       Get OTP & Ship Now
@@ -339,14 +339,14 @@ Thank you!`;
                         Get instant quotes via WhatsApp
                       </p>
                       
-                      <div className="grid grid-cols-3 gap-2">
-                        <div className="p-2 bg-green-50 rounded border border-green-200">
+                      <div className="grid grid-cols-3 gap-1">
+                        <div className="p-1.5 bg-green-50 rounded border border-green-200">
                           <div className="text-green-700 font-semibold text-xs">✓ Instant</div>
                         </div>
-                        <div className="p-2 bg-blue-50 rounded border border-blue-200">
+                        <div className="p-1.5 bg-blue-50 rounded border border-blue-200">
                           <div className="text-blue-700 font-semibold text-xs">✓ Best Rates</div>
                         </div>
-                        <div className="p-2 bg-purple-50 rounded border border-purple-200">
+                        <div className="p-1.5 bg-purple-50 rounded border border-purple-200">
                           <div className="text-purple-700 font-semibold text-xs">✓ Secure</div>
                         </div>
                       </div>
@@ -355,20 +355,15 @@ Thank you!`;
                 </div>
               </div>
 
-              {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-white rounded-xl shadow-lg border border-[#dc291e]/10">
-                  <Shield className="w-8 h-8 mx-auto mb-2 text-[#dc291e]" />
-                  <div className="text-sm font-bold text-black">Secure</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-lg border border-[#dc291e]/10">
-                  <Zap className="w-8 h-8 mx-auto mb-2 text-[#dc291e]" />
-                  <div className="text-sm font-bold text-black">Fast</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-lg border border-[#dc291e]/10">
-                  <Star className="w-8 h-8 mx-auto mb-2 text-[#dc291e]" />
-                  <div className="text-sm font-bold text-black">Trusted</div>
-                </div>
+              {/* Compact Stats Row */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center p-3 bg-white/80 rounded-lg shadow-md border border-[#dc291e]/10 hover:shadow-lg transition-all duration-300">
+                    <stat.icon className="w-6 h-6 mx-auto mb-1 text-[#dc291e]" />
+                    <div className="text-lg font-bold text-black">{stat.value}</div>
+                    <div className="text-xs text-gray-600">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
