@@ -50,7 +50,7 @@ const BusinessCredibility = () => {
             Your Trust, Our Commitment
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-black mb-6 animate-slide-up">
-            Why Choose <span style={{color: '#dc291e'}}>Aadhya Global Services?</span>
+            Why Choose <span style={{color: '#dc291e'}}>Pravin Global Services?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in">
             We're not just a logistics company - we're your strategic partner in growth, 

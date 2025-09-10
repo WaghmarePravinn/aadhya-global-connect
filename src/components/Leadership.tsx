@@ -15,7 +15,7 @@ const Leadership = () => {
   /* ------------------------------------------------------------------ */
   const leaders = [
     {
-      name: "Manoj Yadav",
+      name: "Pravin Waghmare",
       title: "CEO & Founder",
       image: manojYadav,
       expertise: "Strategic Leadership & Innovation",
@@ -31,7 +31,7 @@ const Leadership = () => {
       ],
     },
     {
-      name: "Mahesh Ghadge",
+      name: "Mahesh ",
       title: "Transport Manager",
       image: maheshGhadge,
       expertise: "Fleet Operations & Logistics",
@@ -47,7 +47,7 @@ const Leadership = () => {
       ],
     },
     {
-      name: "Reshmaji Patil",
+      name: "Reshmaji",
       title: "Technical Support Engineer",
       image: reshmajiPatil,
       expertise: "Technology & Digital Solutions",
@@ -63,7 +63,7 @@ const Leadership = () => {
       ],
     },
     {
-      name: "Prabha Yadav",
+      name: "Prabha",
       title: "Board Member",
       image: prabhaYadav,
       expertise: "Strategic Finance & Governance",
@@ -79,7 +79,7 @@ const Leadership = () => {
       ],
     },
     {
-      name: "Anand Yadav",
+      name: "Anand",
       title: "Board Member",
       image: anandYadav,
       expertise: "Business Growth & Strategic Partnerships",
@@ -95,7 +95,7 @@ const Leadership = () => {
       ],
     },
     {
-      name: "Anugraha Pillai",
+      name: "Anugraha",
       title: "Front Manager",
       image: anugrahaPillai,
       expertise: "Customer Service & Operations",

@@ -18,7 +18,7 @@ const About = () => {
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Established in 2015, Aadhya Global Services & Logistics has emerged as a trusted name 
+                Established in 2015, Pravin Global Services & Logistics has emerged as a trusted name 
                 in the logistics and supply chain industry. With over 8 years of dedicated service, 
                 we have successfully handled more than 50 lakh tonnes of cargo and served over 50,000 
                 satisfied customers across India and internationally.

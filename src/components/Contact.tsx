@@ -211,7 +211,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Aadhya Global Services & Logistics Location"
+                  title="Pravin Global Services & Logistics Location"
                 />
               </CardContent>
             </Card>

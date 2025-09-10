@@ -67,7 +67,7 @@ Thank you!`;
   };
   return (
     <>
-      <section id="home" className="pt-20 relative min-h-screen flex items-center overflow-hidden bg-white">
+      <section id="home" className="pt-5 relative min-h-screen flex items-center overflow-hidden bg-white">
         {/* Creative Red-themed Background */}
         <div className="absolute inset-0">
           {/* Dynamic Red Gradient Background */}
@@ -172,7 +172,7 @@ Thank you!`;
                   
                   <Button 
                     size="lg" 
-                    className="border-3 border-[#dc291e] text-[#dc291e] hover:bg-[#dc291e] hover:text-white px-6 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl"
+                    className="border-3 border-[#dc291e] text-white hover:bg-[#dc291e] hover:text-white px-6 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl"
                     onClick={() => {
                       const trackingSection = document.getElementById('track-shipment');
                       if (trackingSection) {
@@ -218,7 +218,7 @@ Thank you!`;
             {/* Enhanced Right Content - Shipping Quote Form */}
             <div className="animate-slide-in-right">
               {/* Quick Shipping Quote Card */}
-              <div className="bg-white/95 backdrop-blur-lg p-6 rounded-2xl shadow-2xl border-2 border-[#dc291e]/20 transform hover:scale-102 transition-all duration-500 hover:shadow-3xl relative overflow-hidden max-w-md mx-auto">
+              <div className="bg-white/95 backdrop-blur-lg p-5 rounded-2xl shadow-2xl border-2 border-[#dc291e]/20 transform hover:scale-102 transition-all duration-500 hover:shadow-3xl relative overflow-hidden max-w-md mx-auto">
                 {/* Red Accent Corner */}
                 <div className="absolute top-0 right-0 w-16 h-16 bg-[#dc291e] rounded-bl-full opacity-10"></div>
                 

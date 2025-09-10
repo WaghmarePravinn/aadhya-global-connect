@@ -33,7 +33,7 @@ const Navigation = () => {
                 <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
                   <img 
                     src={agsLogo} 
-                    alt="Aadhya Global Services & Logistics - India's Most Trusted Shipping Partner"
+                    alt="Pravin Global Services & Logistics - India's Most Trusted Shipping Partner"
                     className="w-10 h-10 object-contain"
                   />
                 </div>
@@ -42,7 +42,7 @@ const Navigation = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
-                  Aadhya Global Services
+                  Pravin Global Services
                 </span>
                 <span className="text-sm text-primary font-medium tracking-wide">
                   & Logistics (AGS) • Trusted • Fast
