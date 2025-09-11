@@ -39,14 +39,14 @@ const Contact = () => {
       icon: Mail,
       title: "Email",
       details: [
-        "manojyadav@agslogistics.co.in"
+        "websitedomain@gmail.com"
       ]
     },
     {
       icon: Globe,
       title: "Website",
       details: [
-        "www.agslogistics.co.in"
+        "www.websitedomain@gmail.com"
       ]
     },
     {
