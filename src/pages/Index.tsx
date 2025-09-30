@@ -19,21 +19,21 @@ import TrackingSection from "@/components/TrackingSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <Hero />
       <BusinessCredibility />
-      <TrackingSection />
-      <RateCalculator />
-      <About />
       <Services />
       <Partners />
+      <RateCalculator />
+      <TrackingSection />
+      <Testimonials />
+      <About />
       <Leadership />
       <LiveUpdates />
-      <Testimonials />
       <EnhancedCTA />
-      <PortsComingSoon />
       <Gallery />
+      <PortsComingSoon />
       <Contact />
       <Footer />
       <WhatsAppButton />
