@@ -1,5 +1,5 @@
 
-import { Truck, Package, Globe, Home, Users, FileText, Shield, Clock } from "lucide-react";
+import { Truck, Package, Globe, Chrome as Home, Users, FileText, Shield, Clock } from "lucide-react";
 
 const Services = () => {
   const services = [
