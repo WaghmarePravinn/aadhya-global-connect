@@ -1,5 +1,5 @@
 
-import { Truck, Package, Globe, Chrome as Home, Users, FileText, Shield, Clock } from "lucide-react";
+import { Truck, Package, Globe, Home, Users, FileText, Shield, Clock } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -66,112 +66,83 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-10 w-40 h-40 bg-[#dc291e]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-60 h-60 bg-[#dc291e]/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block px-6 py-3 bg-[#dc291e]/10 rounded-full text-[#dc291e] font-bold text-sm mb-6 animate-bounce-in">
-            WHAT WE OFFER
-          </div>
-          <h2 className="text-5xl lg:text-6xl font-black text-black mb-6 leading-tight">
-            Complete <span className="text-[#dc291e]">Logistics Solutions</span>
-          </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto font-medium leading-relaxed">
-            From domestic shipping to international freight, we deliver excellence at every step.
-            <br />
-            <span className="text-[#dc291e] font-bold">Trusted by 15,000+ businesses</span> across India.
+    <section id="services" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Comprehensive Services</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            From local deliveries to international shipping, we provide end-to-end logistics solutions 
+            tailored to meet your specific business requirements with professional excellence.
           </p>
         </div>
 
         {/* Main Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 group border-2 border-transparent hover:border-[#dc291e]/30 relative overflow-hidden">
-              {/* Gradient Accent on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#dc291e]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div className="relative z-10">
-                <div className="mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#dc291e]/20 to-[#ff3b2d]/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 mb-4">
-                    <service.icon className="h-8 w-8 text-[#dc291e]" />
+            <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 group">
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-200 transition-colors">
+                  <service.icon className="h-8 w-8 text-blue-600" />
+                </div>
+                <div className="ml-4">
+                  <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
+                  <div className="text-blue-600 font-semibold text-sm">{service.price}</div>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+              
+              <div className="space-y-2">
+                <h4 className="font-semibold text-gray-900 mb-3">Key Features:</h4>
+                {service.features.map((feature, featureIndex) => (
+                  <div key={featureIndex} className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="text-gray-600 text-sm">{feature}</span>
                   </div>
-                  <h3 className="text-2xl font-black text-black mb-2 group-hover:text-[#dc291e] transition-colors">{service.title}</h3>
-                  <div className="text-[#dc291e] font-bold text-lg">{service.price}</div>
-                </div>
-
-                <p className="text-gray-600 mb-6 leading-relaxed text-base">{service.description}</p>
-
-                <div className="space-y-3">
-                  <h4 className="font-bold text-black mb-3 text-sm uppercase tracking-wide">Key Features:</h4>
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-3">
-                      <div className="w-5 h-5 bg-[#dc291e] rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                      <span className="text-gray-700 text-sm font-medium">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           ))}
         </div>
 
         {/* Additional Services */}
-        <div className="mt-16">
-          <h3 className="text-4xl font-black text-black text-center mb-12">
-            Value-Added <span className="text-[#dc291e]">Services</span>
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Additional Value-Added Services</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {additionalServices.map((service, index) => (
-              <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-[#dc291e]/10 hover:border-[#dc291e]/30 group hover:scale-105">
+              <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-[#dc291e]/10 rounded-xl flex items-center justify-center mr-4 group-hover:bg-[#dc291e] transition-colors">
-                    <service.icon className="h-6 w-6 text-[#dc291e] group-hover:text-white transition-colors" />
-                  </div>
-                  <h4 className="text-xl font-black text-black group-hover:text-[#dc291e] transition-colors">{service.title}</h4>
+                  <service.icon className="h-8 w-8 text-green-600 mr-3" />
+                  <h4 className="text-lg font-bold text-gray-900">{service.title}</h4>
                 </div>
-                <p className="text-gray-600 leading-relaxed font-medium">{service.description}</p>
+                <p className="text-gray-600">{service.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Service Excellence Stats */}
-        <div className="mt-20 bg-gradient-to-r from-[#dc291e] to-[#ff3b2d] rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-40 h-40 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-60 h-60 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+        <div className="mt-16 bg-blue-600 rounded-2xl p-8 text-white">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold mb-4">Service Excellence Metrics</h3>
+            <p className="text-blue-100">Our commitment to quality is reflected in our performance statistics</p>
           </div>
-
-          <div className="relative z-10">
-            <div className="text-center mb-12">
-              <h3 className="text-4xl lg:text-5xl font-black mb-4">Why Businesses Choose Us</h3>
-              <p className="text-white/90 text-lg lg:text-xl font-medium">Performance metrics that speak for themselves</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div className="hover:transform hover:scale-110 transition-transform cursor-pointer">
+              <div className="text-3xl font-bold mb-2">99.2%</div>
+              <div className="text-blue-100">On-Time Delivery Rate</div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <div className="hover:transform hover:scale-110 transition-transform cursor-pointer bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-5xl font-black mb-2">99.2%</div>
-                <div className="text-white/90 font-semibold text-lg">On-Time Delivery</div>
-              </div>
-              <div className="hover:transform hover:scale-110 transition-transform cursor-pointer bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-5xl font-black mb-2">99.8%</div>
-                <div className="text-white/90 font-semibold text-lg">Customer Satisfaction</div>
-              </div>
-              <div className="hover:transform hover:scale-110 transition-transform cursor-pointer bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-5xl font-black mb-2">0.02%</div>
-                <div className="text-white/90 font-semibold text-lg">Damage Rate</div>
-              </div>
-              <div className="hover:transform hover:scale-110 transition-transform cursor-pointer bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-5xl font-black mb-2">24/7</div>
-                <div className="text-white/90 font-semibold text-lg">Customer Support</div>
-              </div>
+            <div className="hover:transform hover:scale-110 transition-transform cursor-pointer">
+              <div className="text-3xl font-bold mb-2">99.8%</div>
+              <div className="text-blue-100">Customer Satisfaction</div>
+            </div>
+            <div className="hover:transform hover:scale-110 transition-transform cursor-pointer">
+              <div className="text-3xl font-bold mb-2">0.02%</div>
+              <div className="text-blue-100">Damage Rate</div>
+            </div>
+            <div className="hover:transform hover:scale-110 transition-transform cursor-pointer">
+              <div className="text-3xl font-bold mb-2">24/7</div>
+              <div className="text-blue-100">Customer Support</div>
             </div>
           </div>
         </div>

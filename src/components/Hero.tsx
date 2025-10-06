@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CircleCheck as CheckCircle, Truck, Package, Globe, Clock, Calculator, Zap, Shield, Star, TrendingUp, Phone, MessageCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Truck, Package, Globe, Clock, Calculator, Zap, Shield, Star, TrendingUp, Phone, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import TrackingModal from "./TrackingModal";
 import { Input } from "@/components/ui/input";
@@ -116,24 +116,23 @@ Thank you!`;
             {/* Enhanced Left Content with Red Theme */}
             <div className="space-y-6">
               <div className="space-y-6 animate-fade-in">
-                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#dc291e] to-[#ff3b2d] rounded-full text-white font-semibold animate-bounce-in shadow-lg">
-                  <Star className="w-5 h-5 mr-2 animate-pulse" />
+                <div className="inline-flex items-center px-6 py-3 bg-[#dc291e] rounded-full text-white font-semibold animate-bounce-in shadow-lg">
+                  <Star className="w-5 h-5 mr-2" />
                   India's #1 Trusted Logistics Partner
                 </div>
-
-                <h1 className="text-5xl lg:text-7xl font-black text-black leading-[1.1]">
-                  <span className="inline-block animate-slide-up" style={{animationDelay: '0.2s'}}>Fast, Reliable</span>
+                
+                <h1 className="text-5xl lg:text-6xl font-black text-black leading-tight">
+                  <span className="inline-block animate-slide-up" style={{animationDelay: '0.2s'}}>Ship</span>{' '}
+                  <span className="inline-block animate-slide-up" style={{color: '#dc291e', animationDelay: '0.4s'}}>Faster</span>
                   <br />
-                  <span className="inline-block animate-slide-up" style={{color: '#dc291e', animationDelay: '0.4s'}}>Logistics Solutions</span>
-                  <br />
-                  <span className="inline-block animate-slide-up text-2xl lg:text-3xl font-semibold text-gray-700" style={{animationDelay: '0.6s'}}>For Your Business Growth</span>
+                  <span className="inline-block animate-slide-up" style={{animationDelay: '0.6s'}}>Deliver</span>{' '}
+                  <span className="inline-block animate-slide-up" style={{color: '#dc291e', animationDelay: '0.8s'}}>Smarter</span>
                 </h1>
-
-                <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed animate-slide-up font-medium" style={{animationDelay: '1s'}}>
-                  <span style={{color: '#dc291e'}} className="font-bold">99.2% on-time delivery</span> across
-                  <span style={{color: '#dc291e'}} className="font-bold">50,000+ locations</span> in India.
-                  <br />
-                  <span className="text-lg text-gray-600">Partner with 15,000+ businesses nationwide.</span>
+                
+                <p className="text-xl text-gray-700 leading-relaxed animate-slide-up font-medium" style={{animationDelay: '1s'}}>
+                  Transform your business with India's most reliable logistics network. 
+                  <span style={{color: '#dc291e'}} className="font-bold"> 99.2% on-time delivery</span> across 
+                  <span style={{color: '#dc291e'}} className="font-bold"> 50,000+ locations</span>.
                 </p>
                 
                 {/* Trust Indicators */}
@@ -155,10 +154,10 @@ Thank you!`;
 
               {/* High-Converting CTA Section */}
               <div className="space-y-4 animate-slide-up" style={{animationDelay: '1.4s'}}>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
-                    className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-10 py-6 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 rounded-xl animate-pulse-glow"
+                <div className="flex flex-wrap gap-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-[#dc291e] hover:bg-[#b8241a] text-white px-8 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-2xl active:scale-95 rounded-xl"
                     onClick={() => {
                       const rateCalculator = document.getElementById('rate-calculator');
                       if (rateCalculator) {
@@ -166,14 +165,14 @@ Thank you!`;
                       }
                     }}
                   >
-                    <Calculator className="mr-3 h-7 w-7" />
-                    Get Free Quote Now
-                    <ArrowRight className="ml-3 h-7 w-7" />
+                    <Calculator className="mr-3 h-6 w-6" />
+                    Get Instant Quote
+                    <ArrowRight className="ml-3 h-6 w-6" />
                   </Button>
-
-                  <Button
-                    size="lg"
-                    className="border-2 border-[#dc291e] bg-white text-[#dc291e] hover:bg-[#dc291e] hover:text-white px-8 py-6 text-xl font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl"
+                  
+                  <Button 
+                    size="lg" 
+                    className="border-3 border-[#dc291e] text-white hover:bg-[#dc291e] hover:text-white px-6 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 hover:shadow-xl active:scale-95 group rounded-xl"
                     onClick={() => {
                       const trackingSection = document.getElementById('track-shipment');
                       if (trackingSection) {
@@ -181,17 +180,16 @@ Thank you!`;
                       }
                     }}
                   >
-                    <Package className="mr-3 h-7 w-7 group-hover:animate-bounce" />
+                    <Package className="mr-3 h-6 w-6 group-hover:animate-bounce" />
                     Track Shipment
                   </Button>
                 </div>
-
+                
                 {/* Urgency & Social Proof */}
-                <div className="bg-gradient-to-r from-[#dc291e]/10 to-[#ff3b2d]/5 border-l-4 border-[#dc291e] p-4 rounded-r-lg shadow-lg">
-                  <p className="text-black font-semibold text-lg">
-                    🔥 <span style={{color: '#dc291e'}}>Special Offer:</span> 20% OFF your first shipment!
-                    <br className="sm:hidden" />
-                    <span style={{color: '#dc291e'}} className="font-bold">50,000+ businesses trust us</span>
+                <div className="bg-[#dc291e]/5 border-l-4 border-[#dc291e] p-3 rounded-r-lg">
+                  <p className="text-black font-semibold">
+                    🔥 <span style={{color: '#dc291e'}}>Limited Time:</span> Get 20% off your first shipment! 
+                    <span style={{color: '#dc291e'}} className="font-bold">Join 50,000+ satisfied customers</span>
                   </p>
                 </div>
                 
@@ -220,17 +218,17 @@ Thank you!`;
             {/* Enhanced Right Content - Shipping Quote Form */}
             <div className="animate-slide-in-right">
               {/* Quick Shipping Quote Card */}
-              <div className="bg-white backdrop-blur-lg p-6 rounded-3xl shadow-2xl border-4 border-[#dc291e]/30 transform hover:scale-102 transition-all duration-500 hover:shadow-3xl relative overflow-hidden max-w-lg mx-auto">
+              <div className="bg-white/95 backdrop-blur-lg p-5 rounded-2xl shadow-2xl border-2 border-[#dc291e]/20 transform hover:scale-102 transition-all duration-500 hover:shadow-3xl relative overflow-hidden max-w-md mx-auto">
                 {/* Red Accent Corner */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#dc291e] to-[#ff3b2d] rounded-bl-full opacity-10"></div>
-
+                <div className="absolute top-0 right-0 w-16 h-16 bg-[#dc291e] rounded-bl-full opacity-10"></div>
+                
                 <div className="relative z-10">
                   <div className="text-center mb-6">
-                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#dc291e]/20 to-[#ff3b2d]/10 rounded-full mb-4 animate-pulse">
-                      <Package className="w-10 h-10 text-[#dc291e]" />
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#dc291e]/10 rounded-full mb-3">
+                      <Package className="w-8 h-8 text-[#dc291e]" />
                     </div>
-                    <h3 className="text-3xl font-bold text-black mb-2">Ship Your Courier</h3>
-                    <p className="text-gray-600 text-base font-medium">Get instant rates via WhatsApp</p>
+                    <h3 className="text-2xl font-bold text-black mb-1">Ship Personal Courier</h3>
+                    <p className="text-gray-600 text-sm">Get instant shipping quotes</p>
                   </div>
 
                   {/* Shipping Quote Form */}
@@ -329,27 +327,27 @@ Thank you!`;
                     <Button
                       onClick={handleGetQuote}
                       disabled={!pickupLocation.trim() || !deliveryLocation.trim()}
-                      className="w-full bg-gradient-to-r from-[#dc291e] to-[#ff3b2d] hover:from-[#b8241a] hover:to-[#dc291e] text-white py-6 text-lg font-bold transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-xl shadow-xl hover:shadow-2xl animate-pulse-glow"
+                      className="w-full bg-[#dc291e] hover:bg-[#b8241a] text-white py-3 text-base font-bold transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg shadow-lg hover:shadow-xl"
                     >
-                      <MessageCircle className="mr-3 h-6 w-6" />
-                      Get Instant Quote on WhatsApp
+                      <MessageCircle className="mr-3 h-5 w-5" />
+                      Get OTP & Ship Now
                     </Button>
 
                     {/* Additional Info */}
                     <div className="text-center">
-                      <p className="text-sm text-gray-600 mb-4 font-medium">
-                        Quick response within 5 minutes
+                      <p className="text-xs text-gray-500 mb-3">
+                        Get instant quotes via WhatsApp
                       </p>
-
-                      <div className="grid grid-cols-3 gap-2">
-                        <div className="p-2.5 bg-green-50 rounded-lg border-2 border-green-200 hover:scale-105 transition-all">
-                          <div className="text-green-700 font-bold text-sm">✓ Instant</div>
+                      
+                      <div className="grid grid-cols-3 gap-1">
+                        <div className="p-1.5 bg-green-50 rounded border border-green-200">
+                          <div className="text-green-700 font-semibold text-xs">✓ Instant</div>
                         </div>
-                        <div className="p-2.5 bg-blue-50 rounded-lg border-2 border-blue-200 hover:scale-105 transition-all">
-                          <div className="text-blue-700 font-bold text-sm">✓ Best Rates</div>
+                        <div className="p-1.5 bg-blue-50 rounded border border-blue-200">
+                          <div className="text-blue-700 font-semibold text-xs">✓ Best Rates</div>
                         </div>
-                        <div className="p-2.5 bg-orange-50 rounded-lg border-2 border-orange-200 hover:scale-105 transition-all">
-                          <div className="text-orange-700 font-bold text-sm">✓ Secure</div>
+                        <div className="p-1.5 bg-purple-50 rounded border border-purple-200">
+                          <div className="text-purple-700 font-semibold text-xs">✓ Secure</div>
                         </div>
                       </div>
                     </div>
@@ -358,12 +356,12 @@ Thank you!`;
               </div>
 
               {/* Compact Stats Row */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-white rounded-xl shadow-lg border-2 border-[#dc291e]/20 hover:shadow-2xl hover:border-[#dc291e]/40 transition-all duration-300 hover:scale-105 cursor-pointer group">
-                    <stat.icon className="w-8 h-8 mx-auto mb-2 text-[#dc291e] group-hover:scale-110 transition-transform" />
-                    <div className="text-2xl font-black text-[#dc291e]">{stat.value}</div>
-                    <div className="text-sm font-semibold text-gray-700">{stat.label}</div>
+                  <div key={index} className="text-center p-3 bg-white/80 rounded-lg shadow-md border border-[#dc291e]/10 hover:shadow-lg transition-all duration-300">
+                    <stat.icon className="w-6 h-6 mx-auto mb-1 text-[#dc291e]" />
+                    <div className="text-lg font-bold text-black">{stat.value}</div>
+                    <div className="text-xs text-gray-600">{stat.label}</div>
                   </div>
                 ))}
               </div>
