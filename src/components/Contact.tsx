@@ -32,7 +32,7 @@ const Contact = () => {
       icon: Phone,
       title: "Phone",
       details: [
-        "+91-9284441622"
+        "+91-9000000000"
       ]
     },
     {
@@ -53,7 +53,7 @@ const Contact = () => {
       icon: MessageCircle,
       title: "WhatsApp",
       details: [
-        "+91-9284441622"
+        "+91-9000000000"
       ]
     }
   ];
@@ -328,13 +328,13 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-primary/10 p-4 rounded-lg">
                       <div className="text-primary text-sm">
-                        <strong>Need Immediate Assistance?</strong> Call us at +91-9284441622 
+                        <strong>Need Immediate Assistance?</strong> Call us at +91-9000000000 
                         for urgent logistics requirements.
                       </div>
                     </div>
                     <div className="bg-green-50 p-4 rounded-lg border border-green-200">
                       <a 
-                        href="https://wa.me/919284441622?text=Hello,%20I%20need%20help%20with%20logistics%20services"
+                        href="https://wa.me/919000000000?text=Hello,%20I%20need%20help%20with%20logistics%20services"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors text-sm"

@@ -227,14 +227,14 @@ const TrackingSection = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <a 
-                      href="tel:+919284441622"
+                      href="tel:+919000000000"
                       className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                     >
                       <Clock className="w-4 h-4 mr-2" />
-                      Call: +91-9284441622
+                      Call: +91-9000000000
                     </a>
                     <a 
-                      href="https://wa.me/919284441622"
+                      href="https://wa.me/919000000000"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"

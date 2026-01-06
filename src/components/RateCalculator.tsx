@@ -381,7 +381,7 @@ const RateCalculator = () => {
                       className="w-full mt-6 text-white transform hover:scale-105 transition-all duration-300 active:scale-95 rounded-lg"
                       style={{ backgroundColor: "#dc291e" }}
                       onClick={() =>
-                        window.open("https://wa.me/919284441622", "_blank")
+                        window.open("https://wa.me/919000000000", "_blank")
                       }
                     >
                       Book via WhatsApp
